@@ -6,4 +6,19 @@
     <string name="tomorrowtxt">Domani,</string>
     <string name="Tomorrowinfos">Lunedi 11 Settembre</string>
     <string name="Clima">sereno</string>
+    <string name="day_time">00:00</string>
+    <string name="tomorrow_temp">14°</string>
+    <string name="precipitationTXT">80%</string>
+    <string name="percived">Percepita</string>
+    <string name="UV_index">Indice UV</string>
+    <string name="temperature">15°</string>
+    <string name="UV">1/10</string>
+    <string name="Umidity">Umidità</string>
+    <string name="wind">Vento</string>
+    <string name="windpower">NNE 1km/h</string>
+    <string name="Umiditynum">85%</string>
+    <string name="copertura">Copertura</string>
+    <string name="Rain">Pioggia</string>
+    <string name="rainCM">0cm</string>
+    <string name="coperturaPercent">5%</string>
 </resources>
