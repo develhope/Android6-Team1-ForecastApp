@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="16dp"
+    >
 
     <TextView
         android:id="@+id/item_our"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+
         android:layout_weight="1"
         android:fontFamily="@font/inter"
         android:text="@string/day_time"
@@ -51,7 +53,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/precipitation"
+        android:id="@+id/tomorrow_precipitation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -64,12 +66,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/tomorrow_precipitationimg"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:src="@drawable/fluent_drop_16_filled"
-        app:layout_constraintEnd_toStartOf="@id/precipitation"
+        app:layout_constraintEnd_toStartOf="@id/tomorrow_precipitation"
 
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +83,7 @@
         android:layout_marginTop="12dp"
         android:background="@color/barralista"
         app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview" />
+        app:layout_constraintTop_toBottomOf="@id/itemimg" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
@@ -117,7 +120,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/PrepipNum"
+                android:id="@+id/percepitaNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
@@ -145,10 +148,10 @@
                 android:layout_marginTop="8dp"
                 android:background="@color/barralista"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/PrepipNum" />
+                app:layout_constraintTop_toBottomOf="@id/percepitaNum" />
 
             <TextView
-                android:id="@+id/umidity"
+                android:id="@+id/umidita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -181,6 +184,7 @@
                 app:layout_constraintTop_toBottomOf="@id/vento" />
 
             <TextView
+                android:id="@+id/umiditaNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
@@ -188,7 +192,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/umidity" />
+                app:layout_constraintTop_toBottomOf="@id/umidita" />
 
             <View
                 android:id="@+id/separator3"
