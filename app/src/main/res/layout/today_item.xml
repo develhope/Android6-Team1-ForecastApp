@@ -83,8 +83,206 @@
             android:rotation="180"
             app:srcCompat="@drawable/arrow" />
 
-
     </LinearLayout>
 
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="16dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Prima riga -->
+
+                <TextView
+                    android:id="@+id/percepita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:text="Percepita"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/gradi45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:text="45°"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/percepita" />
+
+                <TextView
+                    android:id="@+id/indiceuv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="208dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="8dp"
+                    android:text="Indice UV"
+                    app:layout_constraintStart_toEndOf="@id/percepita"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/indice510"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5/10"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingStart="240dp"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/gradi45"
+                    app:layout_constraintTop_toBottomOf="@id/indiceuv"/>
+
+                <View
+                    android:id="@+id/separatore1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/separator"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gradi45"
+                    />
+
+                <!-- Seconda riga -->
+
+                <TextView
+                    android:id="@+id/umidita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:text="Umidità"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/separatore1" />
+
+                <TextView
+                    android:id="@+id/umiditagradi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:text="60%"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/umidita" />
+
+                <TextView
+                    android:id="@+id/vento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="214dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="8dp"
+                    android:text="Vento"
+                    app:layout_constraintStart_toEndOf="@id/umidita"
+                    app:layout_constraintTop_toTopOf="@id/separatore1"
+                    />
+
+                <TextView
+                    android:id="@+id/ventosse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SSE 7km/h"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingStart="234dp"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/umiditagradi"
+                    app:layout_constraintTop_toBottomOf="@id/vento" />
+
+                <View
+                    android:id="@+id/separatore2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/separator"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ventosse"
+                    />
+
+                <!-- Terza riga -->
+
+                <TextView
+                    android:id="@+id/copertura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:text="Copertura"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/separatore2" />
+
+                <TextView
+                    android:id="@+id/coperturagradi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:text="24%"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/copertura" />
+
+                <TextView
+                    android:id="@+id/pioggia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="214dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="8dp"
+                    android:text="Pioggia"
+                    app:layout_constraintStart_toEndOf="@id/umidita"
+                    app:layout_constraintTop_toTopOf="@id/separatore2"
+                    />
+
+                <TextView
+                    android:id="@+id/pioggiacm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0cm"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingStart="234dp"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/umiditagradi"
+                    app:layout_constraintTop_toBottomOf="@id/pioggia" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/separatorelista"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@color/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
