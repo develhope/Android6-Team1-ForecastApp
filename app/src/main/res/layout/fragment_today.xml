@@ -8,14 +8,15 @@
     tools:context="TodayFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_todayScreen"
+        android:id="@+id/todayscreen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:paddingHorizontal="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/today_item" />
+        tools:listitem="@layout/today_item"
+        tools:itemCount="24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
