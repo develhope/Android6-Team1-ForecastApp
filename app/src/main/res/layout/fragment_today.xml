@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/today_item"
-        tools:itemCount="24"/>
+        tools:itemCount="24"
+        tools:listitem="@layout/today_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
