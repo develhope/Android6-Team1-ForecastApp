@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:fontFamily="@font/inter_extrabold"
+            android:fontFamily="@font/inter_bold"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -54,10 +54,24 @@
             android:id="@+id/immaginegoccia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:paddingStart="35dp"
             android:layout_weight="1"
             android:gravity="center"
             app:srcCompat="@drawable/raindrop" />
+
+        <TextView
+            android:id="@+id/precipitazioni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingEnd="35dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="0%" />
+
 
 
 
