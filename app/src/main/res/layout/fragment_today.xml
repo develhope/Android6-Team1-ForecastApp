@@ -8,6 +8,16 @@
     tools:context="TodayFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todaytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="1"
+        tools:listitem="@layout/today_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todayscreen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -15,7 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todaytitle"
         tools:itemCount="24"
         tools:listitem="@layout/today_item" />
 
