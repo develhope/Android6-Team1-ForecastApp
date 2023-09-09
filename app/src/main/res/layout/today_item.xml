@@ -70,9 +70,18 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="16sp"
-            tools:text="0%" />
+            tools:text="@string/today_item_precipitazioni" />
 
-
+        <ImageView
+            android:id="@+id/freccia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:rotation="180"
+            app:srcCompat="@drawable/arrow" />
 
 
     </LinearLayout>
