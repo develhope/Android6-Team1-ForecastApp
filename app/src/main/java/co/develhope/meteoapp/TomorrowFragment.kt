@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import co.develhope.meteoapp.databinding.FragmentTomorrowBinding
 
 class TomorrowFragment : Fragment() {
+
     private var _binding: FragmentTomorrowBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -21,6 +24,7 @@ class TomorrowFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding.listagiorni.adapter = TomorrowAdapter(
             listOf(
                 TomorrowData(
