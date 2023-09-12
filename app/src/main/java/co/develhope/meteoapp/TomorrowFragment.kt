@@ -27,7 +27,7 @@ class TomorrowFragment : Fragment() {
 
 
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         binding.listagiorni.adapter = TomorrowAdapter(
             listOf(
                 TomorrowData(
