@@ -9,8 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--SearchScreen-->
-    <color name="blue">#6779FF</color>
+    <color name="blue">#1F2D98</color>
     <color name="white_text">#AAB3C3</color>
+    <color name="background">#F0EFFF</color>
 
+
+    background: linear-gradient(271.95deg, #6779FF 3.1%, #1F2D98 98.8%);
 
 </resources>

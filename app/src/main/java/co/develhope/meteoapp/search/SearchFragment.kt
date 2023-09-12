@@ -17,7 +17,11 @@ class SearchFragment : Fragment() {
         City("Palermo"),
         City("Torino"),
         City("Milano"),
-        City("Roma"),
+        City("Napoli"),
+        City("Genova"),
+        City("Catania"),
+        City("Salerno"),
+        City("Bari")
     )
 
 
