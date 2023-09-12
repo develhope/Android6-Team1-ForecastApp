@@ -7,15 +7,60 @@
     android:background="@color/color_background"
     tools:context="TodayFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/todaytitle"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/luogo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="61dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/today_title_location"
+        android:textColor="@color/todaytext1"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:itemCount="1"
-        tools:listitem="@layout/today_title" />
+        android:paddingStart="40dp"
+        />
+
+    <TextView
+        android:id="@+id/oggi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="@string/today_title_oggi"
+        android:textColor="@color/todaytext1"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/luogo"
+        app:layout_constraintTop_toBottomOf="@id/luogo"
+        android:paddingStart="40dp"
+        />
+
+    <TextView
+        android:id="@+id/tvTodayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="Domenica 10 settembre"
+        android:textColor="@color/todaytext1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/oggi"
+        app:layout_constraintTop_toBottomOf="@+id/oggi"
+        android:paddingStart="40dp"
+        />
+
+    <TextView
+        android:id="@+id/clima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="@string/today_title_clima"
+        android:textColor="@color/todaytext1"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTodayDate"
+        android:paddingStart="40dp"
+        android:paddingTop="20dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todayscreen"
@@ -25,7 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/todaytitle"
+        app:layout_constraintTop_toBottomOf="@id/clima"
         tools:itemCount="24"
         tools:listitem="@layout/today_item" />
 
