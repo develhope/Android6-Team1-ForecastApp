@@ -2,6 +2,7 @@ package co.develhope.meteoapp
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.databinding.TomorrowItemBinding
@@ -34,25 +35,26 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
         holder.binding.tomorrowPrecipitation.text = model.tomorrow_precipitation
         holder.binding.tomorrowPrecipitationimg.setImageResource(R.drawable.fluent_drop_16_filled)
         holder.binding.tomorrowFreccia.setImageResource(R.drawable.freccia)
-        //cardhview
-        holder.binding.percipita.text = model.percepita
-        holder.binding.Indiceuv.text = model.indiceuv
+        //cardview
         holder.binding.percepitaNum.text = model.percepitaNum
         holder.binding.Uvindex.text = model.Uvindex
-        holder.binding.umidita.text = model.umidita
         holder.binding.umiditaNum.text = model.umiditaNum
-        holder.binding.vento.text = model.vento
         holder.binding.ventoNum.text = model.ventoNum
-        holder.binding.copertura.text = model.copertura
         holder.binding.coperturapercent.text = model.coperturaNum
-        holder.binding.rain.text = model.pioggiaCard
         holder.binding.rainpercent.text = model.pioggiaCardNum
+        holder.binding.itemLayout.setOnClickListener {
+            holder.binding.tomorrowFreccia.animate().apply {
+                duration = 500
+                rotationBy(180f)
+
+                if (holder.binding.cardview.visibility == View.GONE) {
+                    holder.binding.cardview.visibility = View.VISIBLE
+                } else {
+                    holder.binding.cardview.visibility = View.GONE
+                }
 
 
-
-
-
-
-
+            }
+        }
     }
 }

@@ -24,6 +24,9 @@ class TomorrowFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding.listagiorni.adapter = TomorrowAdapter(
             listOf(
@@ -92,7 +95,7 @@ class TomorrowFragment : Fragment() {
                     "Copertura", "Pioggia", "7%", "0cm"
                 ),
                 TomorrowData(
-                    "00:08", R.drawable.suns, "15°",
+                    "08:00", R.drawable.suns, "15°",
                     R.drawable.fluent_drop_16_filled, "60%",
                     R.drawable.freccia, "Percepita", "indice UV",
                     "22°", "1/10", "Umidità", "Vento", "30%",
@@ -100,7 +103,7 @@ class TomorrowFragment : Fragment() {
                     "Copertura", "Pioggia", "7%", "0cm"
                 ),
                 TomorrowData(
-                    "00:09", R.drawable.sun_cloud, "15°",
+                    "09:00", R.drawable.sun_cloud, "15°",
                     R.drawable.fluent_drop_16_filled, "60%",
                     R.drawable.freccia, "Percepita", "indice UV",
                     "19°", "1/10", "Umidità", "Vento", "50%",
@@ -108,7 +111,7 @@ class TomorrowFragment : Fragment() {
                     "Copertura", "Pioggia", "7%", "0cm"
                 ),
                 TomorrowData(
-                    "00:10", R.drawable.suns, "15°",
+                    "10:00", R.drawable.suns, "15°",
                     R.drawable.fluent_drop_16_filled, "60%",
                     R.drawable.freccia, "Percepita", "indice UV",
                     "24°", "1/10", "Umidità", "Vento", "20%",
