@@ -2,13 +2,17 @@ package co.develhope.meteoapp
 
 
 import android.view.LayoutInflater
-import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.databinding.TomorrowItemBinding
 
 class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
     RecyclerView.Adapter<TomorrowAdapter.TomorrowViewHolder>() {
+
+    val indexOpenedItem = mutableListOf<Int>()
+
     class TomorrowViewHolder(val binding: TomorrowItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -42,19 +46,24 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
         holder.binding.ventoNum.text = model.ventoNum
         holder.binding.coperturapercent.text = model.coperturaNum
         holder.binding.rainpercent.text = model.pioggiaCardNum
+
+        if (position in indexOpenedItem) {
+            holder.binding.cardview.visibility = VISIBLE
+
+            holder.binding.tomorrowFreccia.rotation = 180f
+
+        } else {
+            holder.binding.cardview.visibility = GONE
+            holder.binding.tomorrowFreccia.rotation = 0f
+        }
+
         holder.binding.itemLayout.setOnClickListener {
-            holder.binding.tomorrowFreccia.animate().apply {
-                duration = 500
-                rotationBy(180f)
-
-                if (holder.binding.cardview.visibility == View.GONE) {
-                    holder.binding.cardview.visibility = View.VISIBLE
-                } else {
-                    holder.binding.cardview.visibility = View.GONE
-                }
-
-
+            if( position in indexOpenedItem){
+                indexOpenedItem.remove(position)
+            }else{
+                indexOpenedItem.add(position)
             }
+            notifyItemChanged(position)
         }
     }
 }
