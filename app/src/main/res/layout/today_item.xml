@@ -1,284 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:padding="16dp"
+    tools:ignore="InvalidId">
 
-    <LinearLayout
-        android:id="@+id/linearlayout"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/ora"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/todaytext1"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/today_item_ora" />
+
+    <ImageView
+        android:id="@+id/immaginesole"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toStartOf="@id/gradi"
+        app:layout_constraintStart_toEndOf="@id/ora"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sun" />
+
+
+    <TextView
+        android:id="@+id/gradi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/today_item_gradi" />
 
-        <TextView
-            android:id="@+id/ora"
-            tools:text="@string/today_item_ora"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter"
-            android:gravity="center"
-            android:textColor="@color/todaytext1"
-            android:textSize="16sp" />
+    <ImageView
+        android:id="@+id/freccia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:rotation="180"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow" />
 
-        <ImageView
-            android:id="@+id/immaginesole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            app:srcCompat="@drawable/sun" />
+    <TextView
+        android:id="@+id/precipitazioni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/freccia"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/today_item_precipitazioni" />
 
-        <TextView
-            android:id="@+id/gradi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter_bold"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            tools:text="@string/today_item_gradi" />
-
-        <ImageView
-            android:id="@+id/immaginegoccia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="24dp"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            app:srcCompat="@drawable/raindrop" />
-
-        <TextView
-            android:id="@+id/precipitazioni"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="0.5"
-            android:fontFamily="@font/inter_bold"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            tools:text="@string/today_item_precipitazioni" />
-
-        <ImageView
-            android:id="@+id/freccia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="44dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:rotation="180"
-            app:srcCompat="@drawable/arrow" />
-
-    </LinearLayout>
-
+    <ImageView
+        android:id="@+id/immaginegoccia"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@id/precipitazioni"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/raindrop" />
 
     <androidx.cardview.widget.CardView
-            android:id="@+id/cardview"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="16dp"
-            app:cardUseCompatPadding="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearlayout">
+        android:id="@+id/cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:elevation="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/immaginesole">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+
+            <!-- Prima riga -->
+
+            <TextView
+                android:id="@+id/percepita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percepita"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/gradi45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percepitagradi"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/percepita" />
+
+            <TextView
+                android:id="@+id/indiceuv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="190dp"
+                android:text="@string/indice_uv"
+                app:layout_constraintStart_toEndOf="@id/percepita"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/indice510"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="240dp"
+                android:text="@string/indice_uv_misura"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/gradi45"
+                app:layout_constraintTop_toBottomOf="@id/indiceuv" />
+
+            <View
+                android:id="@+id/separatore1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gradi45" />
 
-                <!-- Prima riga -->
+            <!-- Seconda riga -->
 
-                <TextView
-                    android:id="@+id/percepita"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingTop="8dp"
-                    android:text="Percepita"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/umidita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/umidita"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separatore1" />
 
-                <TextView
-                    android:id="@+id/gradi45"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:text="45°"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/percepita" />
+            <TextView
+                android:id="@+id/umiditagradi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/umidita_percentuale"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/umidita" />
 
-                <TextView
-                    android:id="@+id/indiceuv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="208dp"
-                    android:paddingEnd="16dp"
-                    android:paddingTop="8dp"
-                    android:text="Indice UV"
-                    app:layout_constraintStart_toEndOf="@id/percepita"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+            <TextView
+                android:id="@+id/vento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="216dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:text="@string/vento"
+                app:layout_constraintStart_toEndOf="@id/umidita"
+                app:layout_constraintTop_toTopOf="@id/separatore1" />
 
-                <TextView
-                    android:id="@+id/indice510"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5/10"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:paddingStart="240dp"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@id/gradi45"
-                    app:layout_constraintTop_toBottomOf="@id/indiceuv"/>
+            <TextView
+                android:id="@+id/ventosse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="200dp"
+                android:text="@string/vento_km_h"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/umiditagradi"
+                app:layout_constraintTop_toBottomOf="@id/vento" />
 
-                <View
-                    android:id="@+id/separatore1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/separator"
-                    android:layout_marginHorizontal="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/gradi45"
-                    />
+            <View
+                android:id="@+id/separatore2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ventosse" />
 
-                <!-- Seconda riga -->
+            <!-- Terza riga -->
 
-                <TextView
-                    android:id="@+id/umidita"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingTop="8dp"
-                    android:text="Umidità"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/separatore1" />
+            <TextView
+                android:id="@+id/copertura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/copertura"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separatore2" />
 
-                <TextView
-                    android:id="@+id/umiditagradi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:text="60%"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/umidita" />
+            <TextView
+                android:id="@+id/coperturagradi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/copertura_percentuale"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/copertura" />
 
-                <TextView
-                    android:id="@+id/vento"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="214dp"
-                    android:paddingEnd="16dp"
-                    android:paddingTop="8dp"
-                    android:text="Vento"
-                    app:layout_constraintStart_toEndOf="@id/umidita"
-                    app:layout_constraintTop_toTopOf="@id/separatore1"
-                    />
+            <TextView
+                android:id="@+id/pioggia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="210dp"
+                android:text="@string/pioggia"
+                app:layout_constraintStart_toEndOf="@id/umidita"
+                app:layout_constraintTop_toTopOf="@id/separatore2" />
 
-                <TextView
-                    android:id="@+id/ventosse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SSE 7km/h"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:paddingStart="234dp"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@id/umiditagradi"
-                    app:layout_constraintTop_toBottomOf="@id/vento" />
-
-                <View
-                    android:id="@+id/separatore2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/separator"
-                    android:layout_marginHorizontal="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ventosse"
-                    />
-
-                <!-- Terza riga -->
-
-                <TextView
-                    android:id="@+id/copertura"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingTop="8dp"
-                    android:text="Copertura"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/separatore2" />
-
-                <TextView
-                    android:id="@+id/coperturagradi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:text="24%"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/copertura" />
-
-                <TextView
-                    android:id="@+id/pioggia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="214dp"
-                    android:paddingEnd="16dp"
-                    android:paddingTop="8dp"
-                    android:text="Pioggia"
-                    app:layout_constraintStart_toEndOf="@id/umidita"
-                    app:layout_constraintTop_toTopOf="@id/separatore2"
-                    />
-
-                <TextView
-                    android:id="@+id/pioggiacm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0cm"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:paddingStart="234dp"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@id/umiditagradi"
-                    app:layout_constraintTop_toBottomOf="@id/pioggia" />
+            <TextView
+                android:id="@+id/pioggiacm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="234dp"
+                android:text="@string/pioggia_cm"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/umiditagradi"
+                app:layout_constraintTop_toBottomOf="@id/pioggia" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <View
         android:id="@+id/separatorelista"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="32dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
         android:background="@color/separator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

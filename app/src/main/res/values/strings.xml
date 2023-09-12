@@ -7,4 +7,16 @@
     <string name="today_title_location">Palermo, Sicilia</string>
     <string name="today_title_oggi">Oggi,</string>
     <string name="today_title_clima">Sereno</string>
+    <string name="percepita">Percepita</string>
+    <string name="percepitagradi">45°</string>
+    <string name="indice_uv">Indice UV</string>
+    <string name="indice_uv_misura">5/10</string>
+    <string name="umidita">Umidità</string>
+    <string name="umidita_percentuale">60%</string>
+    <string name="vento">Vento</string>
+    <string name="vento_km_h">SSE 7km/h</string>
+    <string name="copertura">Copertura</string>
+    <string name="copertura_percentuale">24%</string>
+    <string name="pioggia">Pioggia</string>
+    <string name="pioggia_cm">0cm</string>
 </resources>
