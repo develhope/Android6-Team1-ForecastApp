@@ -19,4 +19,5 @@
     <string name="copertura_percentuale">24%</string>
     <string name="pioggia">Pioggia</string>
     <string name="pioggia_cm">0cm</string>
+    <string name="today_giorno_settimana">Domenica 10 settembre</string>
 </resources>

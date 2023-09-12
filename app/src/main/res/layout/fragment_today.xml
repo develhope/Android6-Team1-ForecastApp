@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
         android:paddingStart="40dp"
-        android:text="Domenica 10 settembre"
+        android:text="@string/today_giorno_settimana"
         android:textColor="@color/todaytext1"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/oggi"
