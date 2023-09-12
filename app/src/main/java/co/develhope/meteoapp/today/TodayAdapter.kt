@@ -5,12 +5,16 @@ import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.databinding.TodayItemBinding
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import co.develhope.meteoapp.R
 
 class TodayAdapter(val todayscreen: List<TodayData>) :
     RecyclerView.Adapter<TodayAdapter.TodayViewHolder>() {
     class TodayViewHolder(val binding: TodayItemBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    val openElementIndex = mutableListOf<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodayViewHolder {
         return TodayViewHolder(
@@ -41,17 +45,25 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
         holder.binding.coperturagradi.text = model.coperturagradi
         holder.binding.pioggiacm.text = model.pioggiacm
 
-        holder.binding.constraintlayoutItem.setOnClickListener {
-            holder.binding.freccia.animate().apply {
-                duration = 500
-                rotationBy(180f)
+        if (position in openElementIndex) {
+            holder.binding.cardview.visibility = VISIBLE
 
-                if (holder.binding.cardview.visibility == View.GONE) {
-                    holder.binding.cardview.visibility = View.VISIBLE
-                } else {
-                    holder.binding.cardview.visibility = View.GONE
-                }
+            holder.binding.freccia.rotation = 180f
+
+        } else {
+            holder.binding.cardview.visibility = GONE
+
+            holder.binding.freccia.rotation = 0f
+        }
+
+        holder.binding.constraintlayoutItem.setOnClickListener {
+
+            if (position in openElementIndex) {
+                openElementIndex.remove(position)
+            } else {
+                openElementIndex.add(position)
             }
+            notifyItemChanged(position)
         }
     }
 }
