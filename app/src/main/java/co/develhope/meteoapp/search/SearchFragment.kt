@@ -7,21 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import co.develhope.meteoapp.databinding.FragmentHomeBinding
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
     private val cityList = mutableListOf(
-        City("Palermo"),
-        City("Torino"),
-        City("Milano"),
-        City("Napoli"),
-        City("Genova"),
-        City("Catania"),
-        City("Salerno"),
-        City("Bari")
+        SearchData("Palermo"),
+        SearchData("Torino"),
+        SearchData("Milano"),
+        SearchData("Napoli"),
+        SearchData("Genova"),
+        SearchData("Catania"),
+        SearchData("Salerno"),
+        SearchData("Bari")
     )
 
 
@@ -33,7 +32,7 @@ class SearchFragment : Fragment() {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
 
         val recyclerView: RecyclerView = binding.cityList
-        val adapter = CityAdapter(cityList)
+        val adapter = SearchAdapter(cityList)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 

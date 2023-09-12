@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
 
-class CityAdapter(private val cityList: List<City>) : RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
+class SearchAdapter(private val cityList: List<SearchData>) : RecyclerView.Adapter<SearchAdapter.CityViewHolder>() {
 
     inner class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cityNameTextView: TextView = itemView.findViewById(R.id.search_item_city)
