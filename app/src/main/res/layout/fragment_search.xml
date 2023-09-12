@@ -6,15 +6,22 @@
     tools:context=".SearchFragment"
     android:orientation="horizontal">
 
-<SearchView
-    android:id="@+id/searchView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:queryHint="@string/search_hint"
-    android:layout_marginHorizontal="@dimen/_20dp"
-    android:layout_marginTop="@dimen/_20dp"
-    android:padding="@dimen/_6dp"
-    />
-
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="@string/search_hint"
+        android:layout_marginHorizontal="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:padding="@dimen/_6dp"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recentSearch"
+        android:layout_margin="@dimen/_20dp"
+        android:layout_below="@+id/searchView"
+        />
 
 </RelativeLayout>
