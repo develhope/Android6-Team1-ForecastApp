@@ -26,6 +26,7 @@ class TodayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         binding.todayscreen.adapter = TodayAdapter(
             listOf(
                 TodayData(
