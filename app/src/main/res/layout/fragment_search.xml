@@ -17,7 +17,12 @@
         android:queryHint="@string/search_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/MySearchViewStyle"
+        android:layout_marginLeft="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_20dp"
+        android:searchIcon="@drawable/my_search_icon"
+        android:queryBackground="@null"/>
 
     <TextView
         android:layout_width="wrap_content"
