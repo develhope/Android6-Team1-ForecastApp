@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
 
 <androidx.cardview.widget.CardView
     android:id="@+id/search_item_card"
@@ -11,7 +11,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/_8dp"
     tools:ignore="MissingConstraints"
-    android:layout_marginTop="@dimen/_16dp"
+    android:layout_marginTop="10dp"
     android:layout_marginLeft="@dimen/_16dp"
     android:layout_marginRight="@dimen/_16dp"
     android:layout_marginBottom="@dimen/_16dp"
@@ -21,9 +21,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_gradient"/>
+        android:background="@drawable/background_gradient">
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/search_item_city"
@@ -33,10 +34,32 @@
         android:padding="@dimen/_25dp"
         android:text="@string/citySearch_item"
         android:textColor="@color/white"
-        android:textSize="@dimen/_20sp"/>
+        android:textSize="@dimen/_20sp" />
+
+    <TextView
+        android:id="@+id/search_item_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="310dp"
+        android:padding="15dp"
+        android:text="16°"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sp"
+
+        />
+
+    <TextView
+        android:id="@+id/search_item_status2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="22dp"
+        android:layout_marginStart="280dp"
+        android:padding="10dp"
+        android:text="soleggiato"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 
 
 </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
