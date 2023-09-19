@@ -25,7 +25,7 @@ class TodayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.todayscreen.adapter = TodayAdapter(
+        binding.todayRecycler.adapter = TodayAdapter(
             listOf(
                 TodayData(
                     "11:00", R.drawable.sun, "31°",
