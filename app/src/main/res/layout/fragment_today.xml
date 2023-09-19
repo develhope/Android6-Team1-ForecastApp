@@ -7,57 +7,6 @@
     android:background="@color/color_background"
     tools:context=".today.TodayFragment">
 
-    <TextView
-        android:id="@+id/luogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
-        android:fontFamily="@font/inter"
-        android:paddingStart="40dp"
-        android:text="@string/today_title_location"
-        android:textColor="@color/todaytext1"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/oggi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter"
-        android:paddingStart="40dp"
-        android:text="@string/today_title_oggi"
-        android:textColor="@color/todaytext1"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/luogo"
-        app:layout_constraintTop_toBottomOf="@id/luogo" />
-
-    <TextView
-        android:id="@+id/tvTodayDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter"
-        android:paddingStart="40dp"
-        android:text="@string/today_giorno_settimana"
-        android:textColor="@color/todaytext1"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/oggi"
-        app:layout_constraintTop_toBottomOf="@+id/oggi" />
-
-    <TextView
-        android:id="@+id/clima"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter"
-        android:paddingStart="40dp"
-        android:paddingTop="20dp"
-        android:text="@string/today_title_clima"
-        android:textColor="@color/todaytext1"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTodayDate" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todayscreen"
         android:layout_width="match_parent"
@@ -67,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clima"
+        app:layout_constraintBottomtoBottomOf="parent"
         tools:itemCount="12"
         tools:listitem="@layout/today_item" />
 

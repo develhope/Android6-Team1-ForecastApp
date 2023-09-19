@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrantlayout_title">
+
+    <TextView
+        android:id="@+id/luogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/todaytext1"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/today_title_location" />
+
+    <TextView
+        android:id="@+id/oggi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/todaytext1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/luogo"
+        android:text="@string/today_title_oggi" />
+
+    <TextView
+        android:id="@+id/tvTodayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/todaytext1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/oggi"
+        app:layout_constraintTop_toBottomOf="@id/oggi"
+        tools:text="@string/today_giorno_settimana" />
+
+    <TextView
+        android:id="@+id/clima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/todaytext1"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTodayDate"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/today_title_clima"
+        android:paddingVertical="16dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
