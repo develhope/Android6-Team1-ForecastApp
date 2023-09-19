@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.databinding.TodayItemBinding
 import android.view.LayoutInflater
-import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import co.develhope.meteoapp.R
@@ -30,20 +29,20 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
         val model = todayscreen[position]
 
         //recyclerveiw item elements
-        holder.binding.ora.text = model.ora
+        holder.binding.ora.text = model.todayDate
         holder.binding.immaginesole.setImageResource(R.drawable.sun)
-        holder.binding.gradi.text = model.gradi
+        holder.binding.gradi.text = model.todayDegrees
         holder.binding.immaginegoccia.setImageResource(R.drawable.raindrop)
-        holder.binding.precipitazioni.text = model.precipitazioni
+        holder.binding.precipitazioni.text = model.todayRainfall
         holder.binding.freccia.setImageResource(R.drawable.arrow)
 
         //recyclerview cardview elements
-        holder.binding.gradi45.text = model.gradi45
-        holder.binding.indice510.text = model.indice510
-        holder.binding.umiditagradi.text = model.umiditagradi
-        holder.binding.ventosse.text = model.ventosse
-        holder.binding.coperturagradi.text = model.coperturagradi
-        holder.binding.pioggiacm.text = model.pioggiacm
+        holder.binding.gradi45.text = model.todayPerceivedDegrees
+        holder.binding.indice510.text = model.todayUvIndexFactor
+        holder.binding.umiditagradi.text = model.todayumidityDegrees
+        holder.binding.ventosse.text = model.todayWindFactor
+        holder.binding.coperturagradi.text = model.todayCoverageFactor
+        holder.binding.pioggiacm.text = model.todayRainFactor
 
         if (position in openElementIndex) {
             holder.binding.cardview.visibility = VISIBLE
