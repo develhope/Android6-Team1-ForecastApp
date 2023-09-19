@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
         android:textColor="@color/todaytext1"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/today_title_location" />
@@ -24,7 +24,7 @@
         android:fontFamily="@font/inter"
         android:text="@string/today_title_oggi"
         android:textColor="@color/todaytext1"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size_large"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/luogo" />
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
         android:textColor="@color/todaytext1"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_medium"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/oggi"
         app:layout_constraintTop_toBottomOf="@id/oggi"
@@ -48,7 +48,7 @@
         android:fontFamily="@font/inter"
         android:paddingVertical="16dp"
         android:textColor="@color/todaytext1"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTodayDate"
         tools:text="@string/today_title_clima" />
