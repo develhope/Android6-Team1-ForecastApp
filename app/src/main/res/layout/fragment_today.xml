@@ -8,7 +8,7 @@
     tools:context=".today.TodayFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/todayscreen"
+        android:id="@+id/todayRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingHorizontal="@dimen/padding_medium"

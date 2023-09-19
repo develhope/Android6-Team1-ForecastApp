@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/ora"
+        android:id="@+id/todayDateItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
@@ -22,18 +22,18 @@
         tools:text="@string/today_item_ora" />
 
     <ImageView
-        android:id="@+id/immaginesole"
+        android:id="@+id/todayWeatherIconItem"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="@dimen/margin_smaller"
-        app:layout_constraintEnd_toStartOf="@id/gradi"
-        app:layout_constraintStart_toEndOf="@id/ora"
+        app:layout_constraintEnd_toStartOf="@id/todayDegreesItem"
+        app:layout_constraintStart_toEndOf="@id/todayDateItem"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sun" />
 
 
     <TextView
-        android:id="@+id/gradi"
+        android:id="@+id/todayDegreesItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_smaller"
@@ -47,7 +47,7 @@
         tools:text="@string/today_item_gradi" />
 
     <ImageView
-        android:id="@+id/freccia"
+        android:id="@+id/todayArrowItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_big"
@@ -57,7 +57,7 @@
         app:srcCompat="@drawable/arrow" />
 
     <TextView
-        android:id="@+id/precipitazioni"
+        android:id="@+id/todayRainfallItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_smaller"
@@ -65,17 +65,17 @@
         android:fontFamily="@font/inter_bold"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_large"
-        app:layout_constraintEnd_toStartOf="@id/freccia"
+        app:layout_constraintEnd_toStartOf="@id/todayArrowItem"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/today_item_precipitazioni" />
 
     <ImageView
-        android:id="@+id/immaginegoccia"
+        android:id="@+id/todayRainfallPictureItem"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_smaller"
-        app:layout_constraintEnd_toStartOf="@id/precipitazioni"
+        app:layout_constraintEnd_toStartOf="@id/todayRainfallItem"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/raindrop" />
 
@@ -89,7 +89,7 @@
         app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/immaginesole"
+        app:layout_constraintTop_toBottomOf="@id/todayWeatherIconItem"
         tools:visibility="visible">
 
 
@@ -102,7 +102,7 @@
             <!-- Prima riga -->
 
             <TextView
-                android:id="@+id/percepita"
+                android:id="@+id/todayPerceivedItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/percepita"
@@ -110,7 +110,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/gradi45"
+                android:id="@+id/todayPerceivedDegreesItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/percepitagradi"
@@ -118,31 +118,31 @@
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/percepita" />
+                app:layout_constraintTop_toBottomOf="@id/todayPerceivedItem" />
 
             <TextView
-                android:id="@+id/indiceuv"
+                android:id="@+id/todayUvIndexItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/indice_uv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.87"
-                app:layout_constraintStart_toEndOf="@id/percepita"
+                app:layout_constraintStart_toEndOf="@id/todayPerceivedItem"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/indice510"
+                android:id="@+id/todayUvIndexFactorItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/indice_uv_misura"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/indiceuv"
-                app:layout_constraintTop_toBottomOf="@id/indiceuv" />
+                app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
+                app:layout_constraintTop_toBottomOf="@id/todayUvIndexItem" />
 
             <View
-                android:id="@+id/separatore1"
+                android:id="@+id/separator1Item"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_tiny"
                 android:layout_marginHorizontal="@dimen/margin_big"
@@ -150,21 +150,21 @@
                 android:background="@color/separator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gradi45" />
+                app:layout_constraintTop_toBottomOf="@id/todayPerceivedDegreesItem" />
 
             <!-- Seconda riga -->
 
             <TextView
-                android:id="@+id/umidita"
+                android:id="@+id/todayUmidityItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
                 android:text="@string/umidita"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/separatore1" />
+                app:layout_constraintTop_toBottomOf="@id/separator1Item" />
 
             <TextView
-                android:id="@+id/umiditagradi"
+                android:id="@+id/todayUmidityFactorItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/umidita_percentuale"
@@ -172,30 +172,30 @@
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/umidita" />
+                app:layout_constraintTop_toBottomOf="@id/todayUmidityItem" />
 
             <TextView
-                android:id="@+id/vento"
+                android:id="@+id/todayWindItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
                 android:text="@string/vento"
-                app:layout_constraintStart_toStartOf="@id/indiceuv"
-                app:layout_constraintTop_toTopOf="@id/separatore1" />
+                app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
+                app:layout_constraintTop_toTopOf="@id/separator1Item" />
 
             <TextView
-                android:id="@+id/ventosse"
+                android:id="@+id/todayWindFactorItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/vento_km_h"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/indiceuv"
-                app:layout_constraintTop_toBottomOf="@id/vento" />
+                app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
+                app:layout_constraintTop_toBottomOf="@id/todayWindItem" />
 
             <View
-                android:id="@+id/separatore2"
+                android:id="@+id/separator2Item"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_tiny"
                 android:layout_marginHorizontal="@dimen/margin_big"
@@ -203,21 +203,21 @@
                 android:background="@color/separator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ventosse" />
+                app:layout_constraintTop_toBottomOf="@id/todayWindFactorItem" />
 
             <!-- Terza riga -->
 
             <TextView
-                android:id="@+id/copertura"
+                android:id="@+id/todayCoverageItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
                 android:text="@string/copertura"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/separatore2" />
+                app:layout_constraintTop_toBottomOf="@id/separator2Item" />
 
             <TextView
-                android:id="@+id/coperturagradi"
+                android:id="@+id/todayCoverageFactorItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/copertura_percentuale"
@@ -225,34 +225,34 @@
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/copertura" />
+                app:layout_constraintTop_toBottomOf="@id/todayCoverageItem" />
 
             <TextView
-                android:id="@+id/pioggia"
+                android:id="@+id/todayRainItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
                 android:text="@string/pioggia"
-                app:layout_constraintStart_toStartOf="@id/indiceuv"
-                app:layout_constraintTop_toTopOf="@id/separatore2" />
+                app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
+                app:layout_constraintTop_toTopOf="@id/separator2Item" />
 
             <TextView
-                android:id="@+id/pioggiacm"
+                android:id="@+id/todayRainCmItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pioggia_cm"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/indiceuv"
-                app:layout_constraintTop_toBottomOf="@id/pioggia" />
+                app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
+                app:layout_constraintTop_toBottomOf="@id/todayRainItem" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <View
-        android:id="@+id/separatorelista"
+        android:id="@+id/todayRecyclerSeparatorItem"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_tiny"
         android:layout_marginHorizontal="@dimen/margin_big"

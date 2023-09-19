@@ -29,30 +29,30 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
         val model = todayscreen[position]
 
         //recyclerveiw item elements
-        holder.binding.ora.text = model.todayDate
-        holder.binding.immaginesole.setImageResource(R.drawable.sun)
-        holder.binding.gradi.text = model.todayDegrees
-        holder.binding.immaginegoccia.setImageResource(R.drawable.raindrop)
-        holder.binding.precipitazioni.text = model.todayRainfall
-        holder.binding.freccia.setImageResource(R.drawable.arrow)
+        holder.binding.todayDateItem.text = model.todayDate
+        holder.binding.todayWeatherIconItem.setImageResource(R.drawable.sun)
+        holder.binding.todayDegreesItem.text = model.todayDegrees
+        holder.binding.todayRainfallPictureItem.setImageResource(R.drawable.raindrop)
+        holder.binding.todayRainfallItem.text = model.todayRainfall
+        holder.binding.todayArrowItem.setImageResource(R.drawable.arrow)
 
         //recyclerview cardview elements
-        holder.binding.gradi45.text = model.todayPerceivedDegrees
-        holder.binding.indice510.text = model.todayUvIndexFactor
-        holder.binding.umiditagradi.text = model.todayumidityDegrees
-        holder.binding.ventosse.text = model.todayWindFactor
-        holder.binding.coperturagradi.text = model.todayCoverageFactor
-        holder.binding.pioggiacm.text = model.todayRainFactor
+        holder.binding.todayPerceivedDegreesItem.text = model.todayPerceivedDegrees
+        holder.binding.todayUvIndexFactorItem.text = model.todayUvIndexFactor
+        holder.binding.todayUmidityFactorItem.text = model.todayumidityDegrees
+        holder.binding.todayWindFactorItem.text = model.todayWindFactor
+        holder.binding.todayCoverageFactorItem.text = model.todayCoverageFactor
+        holder.binding.todayRainCmItem.text = model.todayRainFactor
 
         if (position in openElementIndex) {
             holder.binding.cardview.visibility = VISIBLE
 
-            holder.binding.freccia.rotation = 180f
+            holder.binding.todayArrowItem.rotation = 180f
 
         } else {
             holder.binding.cardview.visibility = GONE
 
-            holder.binding.freccia.rotation = 0f
+            holder.binding.todayArrowItem.rotation = 0f
         }
 
         holder.binding.constraintlayoutItem.setOnClickListener {

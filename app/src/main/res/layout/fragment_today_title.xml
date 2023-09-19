@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/luogo"
+        android:id="@+id/todayLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
@@ -18,7 +18,7 @@
         tools:text="@string/today_title_location" />
 
     <TextView
-        android:id="@+id/oggi"
+        android:id="@+id/todayOggi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
@@ -27,22 +27,22 @@
         android:textSize="@dimen/text_size_large"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/luogo" />
+        app:layout_constraintTop_toBottomOf="@id/todayLocation" />
 
     <TextView
-        android:id="@+id/tvTodayDate"
+        android:id="@+id/todayDateOfMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
         android:textColor="@color/todaytext1"
         android:textSize="@dimen/text_size_medium"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/oggi"
-        app:layout_constraintTop_toBottomOf="@id/oggi"
+        app:layout_constraintStart_toStartOf="@id/todayOggi"
+        app:layout_constraintTop_toBottomOf="@id/todayOggi"
         tools:text="@string/today_giorno_settimana" />
 
     <TextView
-        android:id="@+id/clima"
+        android:id="@+id/todayClimate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
@@ -50,7 +50,7 @@
         android:textColor="@color/todaytext1"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTodayDate"
+        app:layout_constraintTop_toBottomOf="@id/todayDateOfMonth"
         tools:text="@string/today_title_clima" />
 
 
