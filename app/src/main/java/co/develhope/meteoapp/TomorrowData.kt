@@ -6,20 +6,20 @@ data class TomorrowData(
     val tomorrow_temp: String,
     val Tomorrow_precipitationimg: Int,
     val tomorrow_precipitation: String,
-    val tomorrow_freccia: Int,
+    val tomorrow_arrow: Int,
     //cardview
-    val percepita :String,
-    val indiceuv :String,
-    val percepitaNum : String,
-    val Uvindex : String,
-    val umidita : String,
-    val vento : String,
-    val umiditaNum : String,
-    val ventoNum : String,
-    val copertura : String,
-    val pioggiaCard : String,
-    val coperturaNum : String,
-    val pioggiaCardNum: String
+    val perceived :String,
+    val idex_uv :String,
+    val perceived_num : String,
+    val uv_index : String,
+    val umidity : String,
+    val wind : String,
+    val umidity_num : String,
+    val wind_num : String,
+    val coverage : String,
+    val rain_card : String,
+    val coverage_num : String,
+    val rain_card_num: String
 
 
 

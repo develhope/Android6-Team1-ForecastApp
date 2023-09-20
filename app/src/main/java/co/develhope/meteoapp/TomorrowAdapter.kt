@@ -25,12 +25,12 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
         holder.binding.tomorrowPrecipitationimg.setImageResource(R.drawable.fluent_drop_16_filled)
         holder.binding.tomorrowFreccia.setImageResource(R.drawable.freccia)
         //cardview
-        holder.binding.percepitaNum.text = model.percepitaNum
-        holder.binding.Uvindex.text = model.Uvindex
-        holder.binding.umiditaNum.text = model.umiditaNum
-        holder.binding.ventoNum.text = model.ventoNum
-        holder.binding.coperturapercent.text = model.coperturaNum
-        holder.binding.rainpercent.text = model.pioggiaCardNum
+        holder.binding.percepitaNum.text = model.perceived_num
+        holder.binding.Uvindex.text = model.uv_index
+        holder.binding.umiditaNum.text = model.umidity_num
+        holder.binding.ventoNum.text = model.wind_num
+        holder.binding.coperturapercent.text = model.coverage_num
+        holder.binding.rainpercent.text = model.rain_card_num
 
         if (position in indexOpenedItem) {
             holder.binding.cardview.visibility = VISIBLE
