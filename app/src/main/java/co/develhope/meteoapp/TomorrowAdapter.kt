@@ -16,21 +16,6 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
     class TomorrowViewHolder(val binding: TomorrowItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TomorrowViewHolder {
-        return TomorrowViewHolder(
-            TomorrowItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
-    }
-
-    override fun getItemCount(): Int {
-        return tomorrowList.size
-
-    }
-
     override fun onBindViewHolder(holder: TomorrowViewHolder, position: Int) {
         val model = tomorrowList[position]
         holder.binding.itemOur.text = model.item_our
@@ -58,12 +43,30 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
         }
 
         holder.binding.itemLayout.setOnClickListener {
-            if( position in indexOpenedItem){
+            if (position in indexOpenedItem) {
                 indexOpenedItem.remove(position)
-            }else{
+            } else {
                 indexOpenedItem.add(position)
             }
             notifyItemChanged(position)
         }
     }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TomorrowViewHolder {
+        return TomorrowViewHolder(
+            TomorrowItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
+
+    }
+
+    override fun getItemCount(): Int {
+        return tomorrowList.size
+
+    }
+
+
 }
