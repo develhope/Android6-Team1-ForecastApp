@@ -4,35 +4,51 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.databinding.TodayItemBinding
 import android.view.LayoutInflater
-import android.view.View.GONE
-import android.view.View.VISIBLE
-import co.develhope.meteoapp.R
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import co.develhope.meteoapp.databinding.FragmentTodayTitleBinding
+import co.develhope.meteoapp.today.TodayData.Companion.item
+import co.develhope.meteoapp.today.TodayData.Companion.title
 
 class TodayAdapter(val todayscreen: List<TodayData>) :
-    RecyclerView.Adapter<TodayViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val openElementIndex = mutableListOf<Int>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodayViewHolder {
-        return TodayViewHolder(
-            TodayItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+    override fun getItemViewType(position: Int): Int {
+        return todayscreen[position].type
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (viewType) {
+            item -> TodayViewHolder(
+                TodayItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            )
+            title -> TodayTitleViewHolder(
+                FragmentTodayTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            )
+            else -> throw Exception("Invalid View Holder")
+        }
     }
 
     override fun getItemCount(): Int {
         return todayscreen.size
     }
 
-    override fun onBindViewHolder(holder: TodayViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = todayscreen[position]
 
-        holder.onBind(model, position, openElementIndex) {
-            if (position in openElementIndex) {
-                openElementIndex.remove(position)
-            } else {
-                openElementIndex.add(position)
+        when (holder) {
+
+            is TodayViewHolder -> holder.onBind(model as TodayData.TodayItemData, position, openElementIndex) {
+                if (position in openElementIndex) {
+                    openElementIndex.remove(position)
+                } else {
+                    openElementIndex.add(position)
+                }
+                notifyItemChanged(position)
             }
-            notifyItemChanged(position)
+
+            is TodayTitleViewHolder -> holder.onBind(model as TodayData.TodayTitleData)
         }
     }
 }

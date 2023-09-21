@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constrantlayout_title"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/padding_medium">
 
     <TextView
         android:id="@+id/todayLocation"
@@ -40,18 +41,6 @@
         app:layout_constraintStart_toStartOf="@id/todayOggi"
         app:layout_constraintTop_toBottomOf="@id/todayOggi"
         tools:text="@string/today_giorno_settimana" />
-
-    <TextView
-        android:id="@+id/todayClimate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter"
-        android:paddingVertical="16dp"
-        android:textColor="@color/todaytext1"
-        android:textSize="@dimen/text_size_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/todayDateOfMonth"
-        tools:text="@string/today_title_clima" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

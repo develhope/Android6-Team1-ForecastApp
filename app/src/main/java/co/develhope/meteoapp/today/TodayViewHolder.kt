@@ -7,7 +7,7 @@ import co.develhope.meteoapp.databinding.TodayItemBinding
 
 class TodayViewHolder(val binding : TodayItemBinding): ViewHolder(binding.root) {
 
-    fun onBind(model: TodayData, position: Int, openElementIndex: List<Int>, onClick: () -> Unit) {
+    fun onBind(model: TodayData.TodayItemData, position: Int, openElementIndex: List<Int>, onClick: () -> Unit) {
         //recyclerveiw item elements
         binding.todayDateItem.text = model.todayDate
         binding.todayWeatherIconItem.setImageResource(R.drawable.sun)
