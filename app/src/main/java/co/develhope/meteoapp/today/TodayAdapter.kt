@@ -39,7 +39,7 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
         //recyclerview cardview elements
         holder.binding.todayPerceivedDegreesItem.text = model.todayPerceivedDegrees
         holder.binding.todayUvIndexFactorItem.text = model.todayUvIndexFactor
-        holder.binding.todayUmidityFactorItem.text = model.todayumidityDegrees
+        holder.binding.todayHumidityFactorItem.text = model.todayHumidityDegrees
         holder.binding.todayWindFactorItem.text = model.todayWindFactor
         holder.binding.todayCoverageFactorItem.text = model.todayCoverageFactor
         holder.binding.todayRainCmItem.text = model.todayRainFactor

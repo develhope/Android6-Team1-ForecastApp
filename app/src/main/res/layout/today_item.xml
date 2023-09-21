@@ -155,7 +155,7 @@
             <!-- Seconda riga -->
 
             <TextView
-                android:id="@+id/todayUmidityItem"
+                android:id="@+id/todayHumidityItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
@@ -164,7 +164,7 @@
                 app:layout_constraintTop_toBottomOf="@id/separator1Item" />
 
             <TextView
-                android:id="@+id/todayUmidityFactorItem"
+                android:id="@+id/today_humidity_factor_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/umidita_percentuale"
@@ -172,7 +172,7 @@
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/todayUmidityItem" />
+                app:layout_constraintTop_toBottomOf="@id/todayHumidityItem" />
 
             <TextView
                 android:id="@+id/todayWindItem"
