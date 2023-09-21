@@ -13,10 +13,9 @@
         android:layout_height="0dp"
         android:paddingHorizontal="@dimen/padding_medium"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottomtoBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:itemCount="12"
         tools:listitem="@layout/today_item" />
 
