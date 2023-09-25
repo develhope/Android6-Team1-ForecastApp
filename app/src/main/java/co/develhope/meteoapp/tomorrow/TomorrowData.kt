@@ -1,4 +1,4 @@
-package co.develhope.meteoapp
+package co.develhope.meteoapp.tomorrow
 
 data class TomorrowData(
     val item_our: String,
@@ -20,7 +20,4 @@ data class TomorrowData(
     val rain_card : String,
     val coverage_num : String,
     val rain_card_num: String
-
-
-
 )
