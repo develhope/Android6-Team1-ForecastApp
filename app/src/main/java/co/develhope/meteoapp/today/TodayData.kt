@@ -1,8 +1,5 @@
 package co.develhope.meteoapp.today
 
-import android.widget.ImageView
-import co.develhope.meteoapp.R
-
 sealed class TodayData(val type : Int) {
     data class TodayItemData(
         //recyclerview item elements
