@@ -36,29 +36,6 @@ android:layout_height="wrap_content">
         android:textColor="@color/white"
         android:textSize="@dimen/_20sp" />
 
-    <TextView
-        android:id="@+id/search_item_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="310dp"
-        android:padding="15dp"
-        android:text="16°"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_20sp"
-
-        />
-
-    <TextView
-        android:id="@+id/search_item_status2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="22dp"
-        android:layout_marginStart="280dp"
-        android:padding="10dp"
-        android:text="soleggiato"
-        android:textColor="@color/white"
-        android:textSize="15dp" />
-
 
 </androidx.cardview.widget.CardView>
 
