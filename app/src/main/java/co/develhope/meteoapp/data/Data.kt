@@ -7,7 +7,7 @@ import co.develhope.meteoapp.data.domain.WeatherIcon
 import java.time.OffsetDateTime
 
 object Data {
-    fun getTodayTitle() : String = "Palermo, Sicilia"
+    fun getTodayTitle(): String = "Palermo, Sicilia"
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getTodayForecast(): List<TodayForecast> = listOf(

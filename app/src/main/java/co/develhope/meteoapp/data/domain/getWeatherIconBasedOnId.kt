@@ -1,6 +1,6 @@
 package co.develhope.meteoapp.data.domain
 
-fun getWeatherIconBasedOnId(forecastIndex : Int) : WeatherIcon {
+fun getWeatherIconBasedOnId(forecastIndex: Int): WeatherIcon {
     return when (forecastIndex) {
         1 -> WeatherIcon.SUN
         2 -> WeatherIcon.SUNCLOUD

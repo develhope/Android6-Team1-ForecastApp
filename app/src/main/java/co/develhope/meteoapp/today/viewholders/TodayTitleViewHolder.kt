@@ -28,9 +28,7 @@ class TodayTitleViewHolder(private val binding: FragmentTodayTitleBinding) :
                 )
             )
         )
-
         binding.todayTitleCity.text = model.todayLocation
         binding.todayDateOfMonth.text = formattedDate
     }
-
 }

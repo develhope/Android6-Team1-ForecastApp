@@ -44,13 +44,18 @@ class TodayFragment : Fragment() {
     }
 
     private fun todayList(
-        todayCardForecastList : List<TodayForecast>,
-        todayTitle : String
+        todayCardForecastList: List<TodayForecast>,
+        todayTitle: String
     ): List<TodayData> {
 
         val todayItems = mutableListOf<TodayData>()
 
-        todayItems.add(TodayData.TodayTitleData(todayLocation = todayTitle, todayTitleDate = OffsetDateTime.now()))
+        todayItems.add(
+            TodayData.TodayTitleData(
+                todayLocation = todayTitle,
+                todayTitleDate = OffsetDateTime.now()
+            )
+        )
 
         todayCardForecastList.forEach { forecast ->
             todayItems.add(

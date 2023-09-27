@@ -3,7 +3,6 @@ package co.develhope.meteoapp.data.domain
 import co.develhope.meteoapp.R
 
 enum class WeatherIcon(val image: Int) {
-
     SUN(R.drawable.sun),
     SUNCLOUD(R.drawable.sun_cloud),
     SUNRAINCLOUD(R.drawable.fluent_emoji_sun_behind_rain_cloud),

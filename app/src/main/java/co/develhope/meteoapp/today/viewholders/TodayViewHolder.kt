@@ -10,12 +10,18 @@ import co.develhope.meteoapp.databinding.TodayItemBinding
 import co.develhope.meteoapp.today.model.TodayData
 import java.time.format.DateTimeFormatter
 
-class TodayViewHolder(val binding : TodayItemBinding): ViewHolder(binding.root) {
+class TodayViewHolder(val binding: TodayItemBinding) : ViewHolder(binding.root) {
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun onBind(model: TodayData.TodayItemData, position: Int, openElementIndex: List<Int>, onClick: () -> Unit) {
+    fun onBind(
+        model: TodayData.TodayItemData,
+        position: Int,
+        openElementIndex: List<Int>,
+        onClick: () -> Unit
+    ) {
         //recyclerveiw item elements
-        binding.todayDateItem.text = model.forecast.todayDate.format(DateTimeFormatter.ofPattern("HH:mm"))
+        binding.todayDateItem.text =
+            model.forecast.todayDate.format(DateTimeFormatter.ofPattern("HH:mm"))
         binding.todayWeatherIconItem.setWeatherIcon(getWeatherIconBasedOnId(1))
         binding.todayDegreesItem.text = "${model.forecast.todayDegrees}°"
         binding.todayRainfallPictureItem.setWeatherIcon(getWeatherIconBasedOnId(4))
@@ -26,7 +32,8 @@ class TodayViewHolder(val binding : TodayItemBinding): ViewHolder(binding.root) 
         binding.todayPerceivedDegreesItem.text = "${model.forecast.todayPerceivedDegrees}°"
         binding.todayUvIndexFactorItem.text = "${model.forecast.todayUvIndexFactor}/10"
         binding.todayHumidityFactorItem.text = "${model.forecast.todayHumidityDegrees}%"
-        binding.todayWindFactorItem.text = "${model.forecast.todayWindDirection} ${model.forecast.todayWindSpeed}km/h"
+        binding.todayWindFactorItem.text =
+            "${model.forecast.todayWindDirection} ${model.forecast.todayWindSpeed}km/h"
         binding.todayCoverageFactorItem.text = "${model.forecast.todayCoverageFactor}%"
         binding.todayRainCmItem.text = "${model.forecast.todayRainFactor}cm"
 

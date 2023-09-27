@@ -6,10 +6,9 @@ data class TodayForecast(
     val todayDate: OffsetDateTime,
     val todayWeatherPicture: WeatherIcon,
     val todayDegrees: Int,
-    val todayRainfallPicture : WeatherIcon,
+    val todayRainfallPicture: WeatherIcon,
     val todayRainfall: Int,
     val todayArrow: WeatherIcon,
-
     val todayPerceivedDegrees: Int,
     val todayUvIndexFactor: Int,
     val todayHumidityDegrees: Int,

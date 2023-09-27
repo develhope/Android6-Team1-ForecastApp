@@ -28,9 +28,15 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
             item -> TodayViewHolder(
                 TodayItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             )
+
             title -> TodayTitleViewHolder(
-                FragmentTodayTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                FragmentTodayTitleBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
             )
+
             else -> throw Exception("Invalid View Holder")
         }
     }
@@ -45,7 +51,11 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
 
         when (holder) {
 
-            is TodayViewHolder -> holder.onBind(model as TodayData.TodayItemData, position, openElementIndex) {
+            is TodayViewHolder -> holder.onBind(
+                model as TodayData.TodayItemData,
+                position,
+                openElementIndex
+            ) {
                 if (position in openElementIndex) {
                     openElementIndex.remove(position)
                 } else {

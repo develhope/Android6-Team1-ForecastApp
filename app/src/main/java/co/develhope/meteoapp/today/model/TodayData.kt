@@ -3,9 +3,9 @@ package co.develhope.meteoapp.today.model
 import co.develhope.meteoapp.data.domain.TodayForecast
 import org.threeten.bp.OffsetDateTime
 
-sealed class TodayData(val type : Int) {
+sealed class TodayData(val type: Int) {
     data class TodayItemData(
-        val forecast : TodayForecast
+        val forecast: TodayForecast
     ) : TodayData(item)
 
     data class TodayTitleData(
@@ -18,7 +18,3 @@ sealed class TodayData(val type : Int) {
         const val title = 2
     }
 }
-//fun ImageView.setWeatherIcon(weatherIcon: TodayWeatherIcon) {
-//    this.setImageResource(weatherIcon.image)
-//}
-
