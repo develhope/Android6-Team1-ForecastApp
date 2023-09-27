@@ -1,13 +1,35 @@
 package co.develhope.meteoapp.today
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import co.develhope.meteoapp.databinding.FragmentTodayTitleBinding
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
-class TodayTitleViewHolder(val binding : FragmentTodayTitleBinding): ViewHolder(binding.root) {
+class TodayTitleViewHolder(private val binding: FragmentTodayTitleBinding) :
+    ViewHolder(binding.root) {
 
+    fun stringsToCapitalize(input: String): String {
+        return input.split(" ").joinToString(" ") { it.capitalize() }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onBind(model: TodayData.TodayTitleData) {
-        binding.todayLocation.text = model.todayTitleLocation
-        binding.todayDateOfMonth.text = model.todayTitleDate
+
+        val currentDate = LocalDate.now()
+        val formattedDate = stringsToCapitalize(
+            currentDate.format(
+                DateTimeFormatter.ofPattern(
+                    "EEEE d MMMM",
+                    Locale.ITALIAN
+                )
+            )
+        )
+
+        binding.todayTitleCity.text = model.todayLocation
+        binding.todayDateOfMonth.text = formattedDate
     }
 
 }

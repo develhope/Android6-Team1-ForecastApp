@@ -1,9 +1,11 @@
 package co.develhope.meteoapp.today
 
+import android.os.Build
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.databinding.TodayItemBinding
 import android.view.LayoutInflater
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import co.develhope.meteoapp.databinding.FragmentTodayTitleBinding
 import co.develhope.meteoapp.today.TodayData.Companion.item
@@ -34,6 +36,7 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
         return todayscreen.size
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = todayscreen[position]
 

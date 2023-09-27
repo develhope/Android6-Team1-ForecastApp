@@ -20,4 +20,7 @@
     <string name="pioggia">Pioggia</string>
     <string name="pioggia_cm">0cm</string>
     <string name="today_giorno_settimana">Domenica 10 settembre</string>
+    <string name="today_title_city">Palermo</string>
+    <string name="today_title_region">Sicilia</string>
+    <string name="today_title_date">Domenica 10 settembre</string>
 </resources>
