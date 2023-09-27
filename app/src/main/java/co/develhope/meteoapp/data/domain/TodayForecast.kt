@@ -4,7 +4,6 @@ import java.time.OffsetDateTime
 
 data class TodayForecast(
     val todayDate: OffsetDateTime,
-    val todayWeatherPicture: WeatherIcon,
     val todayDegrees: Int,
     val todayRainfallPicture: WeatherIcon,
     val todayRainfall: Int,
@@ -15,5 +14,6 @@ data class TodayForecast(
     val todayWindDirection: String,
     val todayWindSpeed: Int,
     val todayCoverageFactor: Int,
-    val todayRainFactor: Int
+    val todayRainFactor: Int,
+    val forecastIndex: Int
 )

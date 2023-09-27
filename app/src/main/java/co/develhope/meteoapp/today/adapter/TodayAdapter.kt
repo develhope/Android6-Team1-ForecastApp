@@ -28,7 +28,6 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
             item -> TodayViewHolder(
                 TodayItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             )
-
             title -> TodayTitleViewHolder(
                 FragmentTodayTitleBinding.inflate(
                     LayoutInflater.from(parent.context),
@@ -36,7 +35,6 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
                     false
                 )
             )
-
             else -> throw Exception("Invalid View Holder")
         }
     }
@@ -50,7 +48,6 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
         val model = todayscreen[position]
 
         when (holder) {
-
             is TodayViewHolder -> holder.onBind(
                 model as TodayData.TodayItemData,
                 position,
@@ -63,7 +60,6 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
                 }
                 notifyItemChanged(position)
             }
-
             is TodayTitleViewHolder -> holder.onBind(model as TodayData.TodayTitleData)
         }
     }

@@ -16,24 +16,21 @@ class TodayViewHolder(val binding: TodayItemBinding) : ViewHolder(binding.root) 
     fun onBind(
         model: TodayData.TodayItemData,
         position: Int,
-        openElementIndex: List<Int>,
+        openElementIndex: MutableList<Int>,
         onClick: () -> Unit
     ) {
         //recyclerveiw item elements
         binding.todayDateItem.text =
             model.forecast.todayDate.format(DateTimeFormatter.ofPattern("HH:mm"))
-        binding.todayWeatherIconItem.setWeatherIcon(getWeatherIconBasedOnId(1))
+        binding.todayWeatherIconItem.setWeatherIcon(getWeatherIconBasedOnId(model.forecast.forecastIndex))
         binding.todayDegreesItem.text = "${model.forecast.todayDegrees}°"
-        binding.todayRainfallPictureItem.setWeatherIcon(getWeatherIconBasedOnId(4))
         binding.todayRainfallItem.text = "${model.forecast.todayRainfall}%"
-        binding.todayArrowItem.setWeatherIcon(getWeatherIconBasedOnId(5))
 
         //recyclerview cardview elements
         binding.todayPerceivedDegreesItem.text = "${model.forecast.todayPerceivedDegrees}°"
         binding.todayUvIndexFactorItem.text = "${model.forecast.todayUvIndexFactor}/10"
         binding.todayHumidityFactorItem.text = "${model.forecast.todayHumidityDegrees}%"
-        binding.todayWindFactorItem.text =
-            "${model.forecast.todayWindDirection} ${model.forecast.todayWindSpeed}km/h"
+        binding.todayWindFactorItem.text = "${model.forecast.todayWindDirection} ${model.forecast.todayWindSpeed}km/h"
         binding.todayCoverageFactorItem.text = "${model.forecast.todayCoverageFactor}%"
         binding.todayRainCmItem.text = "${model.forecast.todayRainFactor}cm"
 

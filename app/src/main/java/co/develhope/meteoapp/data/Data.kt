@@ -13,7 +13,6 @@ object Data {
     fun getTodayForecast(): List<TodayForecast> = listOf(
         TodayForecast(
             todayDate = OffsetDateTime.now(),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 31,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 0,
@@ -25,11 +24,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
-        ),
-
+            forecastIndex = 1
+            ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(1),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 29,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 0,
@@ -41,10 +39,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
-        ),
+            forecastIndex = 1
+            ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(2),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 30,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 0,
@@ -56,10 +54,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
-        ),
+            forecastIndex = 1
+            ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(3),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 32,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 60,
@@ -71,10 +69,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
-        ),
+            forecastIndex = 3
+            ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(4),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 28,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 70,
@@ -86,10 +84,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 3
         ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(5),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 25,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 20,
@@ -101,10 +99,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 3
         ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(6),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 29,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 0,
@@ -116,10 +114,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 2
         ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(7),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 30,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 60,
@@ -131,10 +129,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 3
         ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(8),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 31,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 40,
@@ -146,10 +144,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 3
         ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(9),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 32,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 30,
@@ -161,10 +159,10 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 3
         ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(10),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 30,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 20,
@@ -176,26 +174,11 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 3
         ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(11),
-            todayWeatherPicture = WeatherIcon.SUN,
             todayDegrees = 29,
-            todayRainfallPicture = WeatherIcon.RAINDROP,
-            todayRainfall = 10,
-            todayArrow = WeatherIcon.ARROW,
-            todayPerceivedDegrees = 45,
-            todayUvIndexFactor = 5,
-            todayHumidityDegrees = 60,
-            todayWindDirection = "SSE",
-            todayWindSpeed = 7,
-            todayCoverageFactor = 24,
-            todayRainFactor = 0,
-        ),
-        TodayForecast(
-            todayDate = OffsetDateTime.now().plusHours(12),
-            todayWeatherPicture = WeatherIcon.SUN,
-            todayDegrees = 28,
             todayRainfallPicture = WeatherIcon.RAINDROP,
             todayRainfall = 0,
             todayArrow = WeatherIcon.ARROW,
@@ -206,6 +189,7 @@ object Data {
             todayWindSpeed = 7,
             todayCoverageFactor = 24,
             todayRainFactor = 0,
+            forecastIndex = 1
         )
     )
 }
