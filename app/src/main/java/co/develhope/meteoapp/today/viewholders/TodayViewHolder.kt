@@ -26,7 +26,7 @@ class TodayViewHolder(val binding : TodayItemBinding): ViewHolder(binding.root) 
         binding.todayPerceivedDegreesItem.text = "${model.forecast.todayPerceivedDegrees}°"
         binding.todayUvIndexFactorItem.text = "${model.forecast.todayUvIndexFactor}/10"
         binding.todayHumidityFactorItem.text = "${model.forecast.todayHumidityDegrees}%"
-        binding.todayWindFactorItem.text = "${model.forecast.todayWindSpeed} ${model.forecast.todayWindDirection}km/h"
+        binding.todayWindFactorItem.text = "${model.forecast.todayWindDirection} ${model.forecast.todayWindSpeed}km/h"
         binding.todayCoverageFactorItem.text = "${model.forecast.todayCoverageFactor}%"
         binding.todayRainCmItem.text = "${model.forecast.todayRainFactor}cm"
 
