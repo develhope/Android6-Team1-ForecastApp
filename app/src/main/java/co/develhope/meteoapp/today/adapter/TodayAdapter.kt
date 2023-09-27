@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.today
+package co.develhope.meteoapp.today.adapter
 
 import android.os.Build
 import android.view.ViewGroup
@@ -8,8 +8,11 @@ import android.view.LayoutInflater
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import co.develhope.meteoapp.databinding.FragmentTodayTitleBinding
-import co.develhope.meteoapp.today.TodayData.Companion.item
-import co.develhope.meteoapp.today.TodayData.Companion.title
+import co.develhope.meteoapp.today.model.TodayData
+import co.develhope.meteoapp.today.model.TodayData.Companion.item
+import co.develhope.meteoapp.today.model.TodayData.Companion.title
+import co.develhope.meteoapp.today.viewholders.TodayTitleViewHolder
+import co.develhope.meteoapp.today.viewholders.TodayViewHolder
 
 class TodayAdapter(val todayscreen: List<TodayData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

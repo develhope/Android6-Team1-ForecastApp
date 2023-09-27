@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.today
+package co.develhope.meteoapp.data.domain
 
 fun getWeatherIconBasedOnId(forecastIndex : Int) : WeatherIcon {
     return when (forecastIndex) {

@@ -1,6 +1,5 @@
 package co.develhope.meteoapp.data.domain
 
-import co.develhope.meteoapp.today.WeatherIcon
 import java.time.OffsetDateTime
 
 data class TodayForecast(

@@ -1,9 +1,10 @@
-package co.develhope.meteoapp.today
+package co.develhope.meteoapp.today.viewholders
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import co.develhope.meteoapp.databinding.FragmentTodayTitleBinding
+import co.develhope.meteoapp.today.model.TodayData
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale

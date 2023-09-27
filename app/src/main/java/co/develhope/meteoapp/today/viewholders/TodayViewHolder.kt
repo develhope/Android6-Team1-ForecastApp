@@ -1,10 +1,13 @@
-package co.develhope.meteoapp.today
+package co.develhope.meteoapp.today.viewholders
 
 import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import co.develhope.meteoapp.data.domain.getWeatherIconBasedOnId
+import co.develhope.meteoapp.data.domain.setWeatherIcon
 import co.develhope.meteoapp.databinding.TodayItemBinding
+import co.develhope.meteoapp.today.model.TodayData
 import java.time.format.DateTimeFormatter
 
 class TodayViewHolder(val binding : TodayItemBinding): ViewHolder(binding.root) {

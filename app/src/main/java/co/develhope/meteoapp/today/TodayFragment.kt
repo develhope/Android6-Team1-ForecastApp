@@ -10,6 +10,8 @@ import androidx.annotation.RequiresApi
 import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.data.domain.TodayForecast
 import co.develhope.meteoapp.databinding.FragmentTodayBinding
+import co.develhope.meteoapp.today.adapter.TodayAdapter
+import co.develhope.meteoapp.today.model.TodayData
 import org.threeten.bp.OffsetDateTime
 
 class TodayFragment : Fragment() {

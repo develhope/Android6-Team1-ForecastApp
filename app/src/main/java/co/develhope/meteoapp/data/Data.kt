@@ -3,8 +3,7 @@ package co.develhope.meteoapp.data
 import android.os.Build
 import androidx.annotation.RequiresApi
 import co.develhope.meteoapp.data.domain.TodayForecast
-import co.develhope.meteoapp.today.TodayData
-import co.develhope.meteoapp.today.WeatherIcon
+import co.develhope.meteoapp.data.domain.WeatherIcon
 import java.time.OffsetDateTime
 
 object Data {
