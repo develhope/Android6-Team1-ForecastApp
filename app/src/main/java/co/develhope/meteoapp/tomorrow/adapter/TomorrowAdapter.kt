@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.tomorrow
+package co.develhope.meteoapp.tomorrow.adapter
 
 
 import android.view.LayoutInflater
@@ -6,10 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.databinding.TomorrowItemBinding
 import co.develhope.meteoapp.databinding.TomorrowItemTitleBinding
-import co.develhope.meteoapp.tomorrow.TomorrowAdapterData.Companion.card
-import co.develhope.meteoapp.tomorrow.TomorrowAdapterData.Companion.title
+import co.develhope.meteoapp.tomorrow.model.TomorrowData
+import co.develhope.meteoapp.tomorrow.model.TomorrowData.Companion.card
+import co.develhope.meteoapp.tomorrow.model.TomorrowData.Companion.title
+import co.develhope.meteoapp.tomorrow.viewholders.TitleViewHolder
+import co.develhope.meteoapp.tomorrow.viewholders.TomorrowViewHolder
 
-class TomorrowAdapter(val tomorrowList: List<TomorrowAdapterData>) :
+class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val indexOpenedItem = mutableListOf<Int>()
@@ -18,11 +21,11 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowAdapterData>) :
         val model = tomorrowList[position]
         if (holder is TitleViewHolder) {
             holder.onBind(
-                model = (model as TomorrowAdapterData.Title).model
+                model = model as TomorrowData.TomorrowTitle
             )
         } else if (holder is TomorrowViewHolder) {
             holder.onBind(
-                model = (model as TomorrowAdapterData.Card).model,
+                model = model as TomorrowData.TomorrowCard,
                 position = position,
                 indexOpenedItem = indexOpenedItem,
                 onClick = {
@@ -39,7 +42,7 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowAdapterData>) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return tomorrowList[position].identifier
+        return tomorrowList[position].type
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

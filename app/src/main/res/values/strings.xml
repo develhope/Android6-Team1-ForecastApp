@@ -24,4 +24,21 @@
     <string name="today_title_city">Palermo</string>
     <string name="today_title_region">Sicilia</string>
     <string name="today_title_date">Domenica 10 settembre</string>
+    <string name="day_time">00:00</string>
+    <string name="tomorrow_temp">14°</string>
+    <string name="precipitationTXT">80%</string>
+    <string name="percived">Percepita</string>
+    <string name="UV_index">Indice UV</string>
+    <string name="temperature">12°</string>
+    <string name="UV">1/10</string>
+    <string name="Umidity">Umidità</string>
+    <string name="wind">Vento</string>
+    <string name="windpower">NNE 1km/h</string>
+    <string name="Umiditynum">80%</string>
+    <string name="Rain">Pioggia</string>
+    <string name="rainCM">0cm</string>
+    <string name="coperturaPercent">3%</string>
+    <string name="place_region">Palermo, Sicilia</string>
+    <string name="tomorrowtxt">Domani,</string>
+    <string name="tomorrowinfos">Lunedì 11 settembre</string>
 </resources>
