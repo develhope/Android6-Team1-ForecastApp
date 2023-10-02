@@ -1,11 +1,10 @@
 package co.develhope.meteoapp.search
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import co.develhope.meteoapp.R
+import co.develhope.meteoapp.databinding.CardSearchItemBinding
+import co.develhope.meteoapp.databinding.RecentSearchItemBinding
 
 class SearchAdapter(
     private val cityList: MutableList<String>,
@@ -22,12 +21,14 @@ class SearchAdapter(
         fun onItemClick(searchData: SearchData)
     }
 
-    inner class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val cityNameTextView: TextView = itemView.findViewById(R.id.search_item_city)
+    inner class CityViewHolder(private val binding: CardSearchItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        // TODO: DA MODIFICARE CON LA RISPOSTA DELL'API
+        fun bind(newCityName: SearchData, position: Int) {
+            binding.searchItemCard = newCityName.name.text
     }
 
-    inner class RecentSearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
+    inner class RecentSearchViewHolder(binding: RecentSearchItemBinding) : RecyclerView.ViewHolder(binding.root)
     override fun getItemViewType(position: Int): Int {
         return if (position < cityList.size) {
             VIEW_TYPE_CITY
@@ -38,25 +39,16 @@ class SearchAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            VIEW_TYPE_CITY -> {
-                val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.city_item, parent, false)
-                CityViewHolder(view)
-            }
+            VIEW_TYPE_CITY -> CityViewHolder(CardSearchItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
-            VIEW_TYPE_RECENT_SEARCH -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.recent_search_item, parent, false)
-                RecentSearchViewHolder(view)
-            }
-
+            VIEW_TYPE_RECENT_SEARCH -> RecentSearchViewHolder(RecentSearchItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             else -> throw IllegalArgumentException("Invalid ViewHolder Type")
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder.itemViewType) {
-            VIEW_TYPE_CITY -> {
+        when (holder) {
+            is CityViewHolder -> holder.bind
                 val cityHolder = holder as CityViewHolder
                 val city = cityList[position]
                 cityHolder.cityNameTextView.text = city
