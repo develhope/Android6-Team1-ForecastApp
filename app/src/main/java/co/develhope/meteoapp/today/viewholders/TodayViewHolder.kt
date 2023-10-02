@@ -8,7 +8,7 @@ import co.develhope.meteoapp.data.domain.getWeatherIconBasedOnId
 import co.develhope.meteoapp.data.domain.setWeatherIcon
 import co.develhope.meteoapp.databinding.TodayItemBinding
 import co.develhope.meteoapp.today.model.TodayData
-import java.time.format.DateTimeFormatter
+import org.threeten.bp.format.DateTimeFormatter
 
 class TodayViewHolder(val binding: TodayItemBinding) : ViewHolder(binding.root) {
 

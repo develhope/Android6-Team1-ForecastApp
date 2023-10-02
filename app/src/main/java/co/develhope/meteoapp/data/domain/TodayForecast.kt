@@ -1,9 +1,7 @@
 package co.develhope.meteoapp.data.domain
 
-import java.time.OffsetDateTime
-
 data class TodayForecast(
-    val todayDate: OffsetDateTime,
+    val todayDate: org.threeten.bp.OffsetDateTime,
     val todayDegrees: Int,
     val todayRainfallPicture: WeatherIcon,
     val todayRainfall: Int,

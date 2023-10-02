@@ -4,7 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import co.develhope.meteoapp.data.domain.TodayForecast
 import co.develhope.meteoapp.data.domain.WeatherIcon
-import java.time.OffsetDateTime
+import org.threeten.bp.OffsetDateTime
 
 object Data {
     fun getTodayTitle(): String = "Palermo, Sicilia"
