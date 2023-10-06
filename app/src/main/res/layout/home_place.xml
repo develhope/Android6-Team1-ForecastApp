@@ -13,6 +13,7 @@
         android:layout_marginStart="@dimen/margin_med"
         android:fontFamily="@font/inter"
         android:text="@string/home_place_title_text"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_size_bigger"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
