@@ -14,7 +14,4 @@
     <dimen name="margin_bigger_2">32dp</dimen>
     <dimen name="height_tiny">1dp</dimen>
     <dimen name="weight_tiny">1dp</dimen>
-
-
-
 </resources>

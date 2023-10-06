@@ -3,7 +3,9 @@ package co.develhope.meteoapp.data
 import android.os.Build
 import androidx.annotation.RequiresApi
 import co.develhope.meteoapp.data.domain.TodayForecast
+import co.develhope.meteoapp.data.domain.TomorrowForecast
 import co.develhope.meteoapp.data.domain.WeatherIcon
+import co.develhope.meteoapp.tomorrow.model.TomorrowData
 import org.threeten.bp.OffsetDateTime
 
 object Data {
@@ -25,7 +27,7 @@ object Data {
             todayCoverageFactor = 24,
             todayRainFactor = 0,
             forecastIndex = 1
-            ),
+        ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(1),
             todayDegrees = 29,
@@ -40,7 +42,7 @@ object Data {
             todayCoverageFactor = 24,
             todayRainFactor = 0,
             forecastIndex = 1
-            ),
+        ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(2),
             todayDegrees = 30,
@@ -55,7 +57,7 @@ object Data {
             todayCoverageFactor = 24,
             todayRainFactor = 0,
             forecastIndex = 1
-            ),
+        ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(3),
             todayDegrees = 32,
@@ -70,7 +72,7 @@ object Data {
             todayCoverageFactor = 24,
             todayRainFactor = 0,
             forecastIndex = 3
-            ),
+        ),
         TodayForecast(
             todayDate = OffsetDateTime.now().plusHours(4),
             todayDegrees = 28,
@@ -192,4 +194,30 @@ object Data {
             forecastIndex = 1
         )
     )
+
+    fun getTomorrowList(): List<TomorrowData> {
+        return listOf(
+            TomorrowData.TomorrowTitle(
+                "Palermo, Sicilia",
+                OffsetDateTime.now().plusDays(1)
+            ),
+            TomorrowData.TomorrowCard(
+                TomorrowForecast(
+                    OffsetDateTime.now(),
+                    12,
+                    WeatherIcon.ARROW,
+                    13,
+                    WeatherIcon.RAINDROP,
+                    12,
+                    14,
+                    1,
+                    "70%",
+                    11,
+                    1,
+                    7,
+                    1
+                )
+            ),
+        )
+    }
 }
