@@ -9,7 +9,7 @@
         android:id="@+id/home_place_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/Margin_bigger"
+        android:layout_marginTop="@dimen/margin_bigger"
         android:layout_marginStart="@dimen/margin_med"
         android:fontFamily="@font/inter"
         android:text="@string/home_place_title_text"
