@@ -1,11 +1,13 @@
 package co.develhope.meteoapp.data.domain
 
+import org.threeten.bp.OffsetDateTime
+
 data class TodayForecast(
-    val todayDate: org.threeten.bp.OffsetDateTime,
+    val todayDate: OffsetDateTime,
     val todayDegrees: Int,
-    val todayRainfallPicture: WeatherIcon,
+    val todayRainfallPicture: Int,
     val todayRainfall: Int,
-    val todayArrow: WeatherIcon,
+    val todayArrow: Int,
     val todayPerceivedDegrees: Int,
     val todayUvIndexFactor: Int,
     val todayHumidityDegrees: Int,

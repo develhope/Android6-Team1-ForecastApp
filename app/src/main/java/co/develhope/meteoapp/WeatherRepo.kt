@@ -1,4 +1,5 @@
 package co.develhope.meteoapp
+import co.develhope.meteoapp.data.local.TodayDataLocal
 import co.develhope.meteoapp.data.remote.TodayDataRemote
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,15 +8,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object WeatherRepo {
+class WeatherRepo {
 
     var weatherService: WeatherService? = null
 
-    suspend fun getTodayWeather(): Response<TodayDataRemote>? {
+    suspend fun getTodayWeather(lat : Double, lon : Double): Response<TodayDataLocal>? {
         if (weatherService == null) {
             weatherService = createRetrofitInstance().create(WeatherService::class.java)
         }
-        return weatherService?.getTodayWeather()
+        val response = weatherService?.getTodayWeather(lat, lon, dailyData, "UTC", 1)
+        return response.toTodayDataLocal()    
     }
 
     fun createRetrofitInstance(): Retrofit {
@@ -31,4 +33,7 @@ object WeatherRepo {
         return Retrofit.Builder().baseUrl(baseUrl).client(httpClient)
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
+
+    private val dailyData =
+        "temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m,uv_index,is_day"
 }
