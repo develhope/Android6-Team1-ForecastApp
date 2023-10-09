@@ -105,7 +105,7 @@
                 android:id="@+id/todayPerceivedItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/percepita"
+                android:text="@string/percived"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,7 +113,7 @@
                 android:id="@+id/todayPerceivedDegreesItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/percepitagradi"
+                android:text="@string/temperature"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
@@ -126,18 +126,20 @@
                 android:layout_height="wrap_content"
                 android:text="@string/indice_uv"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.87"
+                app:layout_constraintHorizontal_bias="0.70"
                 app:layout_constraintStart_toEndOf="@id/todayPerceivedItem"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/todayUvIndexFactorItem"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/indice_uv_misura"
+                android:gravity="start"
+                android:text="@string/UV"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
                 app:layout_constraintTop_toBottomOf="@id/todayUvIndexItem" />
 
@@ -159,7 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
-                android:text="@string/umidita"
+                android:text="@string/Umidity"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/separator1Item" />
 
@@ -167,7 +169,7 @@
                 android:id="@+id/today_humidity_factor_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/umidita_percentuale"
+                android:text="@string/Umiditynum"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
@@ -179,18 +181,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
-                android:text="@string/vento"
+                android:text="@string/wind"
                 app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
                 app:layout_constraintTop_toTopOf="@id/separator1Item" />
 
             <TextView
                 android:id="@+id/todayWindFactorItem"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/vento_km_h"
+                android:gravity="start"
+                android:text="@string/windpower"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
                 app:layout_constraintTop_toBottomOf="@id/todayWindItem" />
 
@@ -238,12 +243,14 @@
 
             <TextView
                 android:id="@+id/todayRainCmItem"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:text="@string/pioggia_cm"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/todayUvIndexItem"
                 app:layout_constraintTop_toBottomOf="@id/todayRainItem" />
 

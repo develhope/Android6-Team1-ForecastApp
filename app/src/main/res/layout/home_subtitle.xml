@@ -5,11 +5,12 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/home_next_days"
+        android:id="@+id/home_subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_med"
         android:layout_marginTop="@dimen/margin_biggest"
+        android:textColor="@color/white"
         android:fontFamily="@font/inter"
         android:text="@string/home_next_days"
         android:textSize="@dimen/text_size_medium"

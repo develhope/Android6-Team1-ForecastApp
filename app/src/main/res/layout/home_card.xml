@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/home_item_card_background_color"
@@ -12,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/home_item_card_background_color"
         android:padding="@dimen/padding_medium">
 
         <TextView
@@ -42,13 +44,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter"
-            android:text="@string/home_min_perceived_num"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12" />
 
         <TextView
             android:id="@+id/home_min_perceived_txt"
@@ -67,12 +69,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_biggest"
             android:fontFamily="@font/inter"
-            android:text="@string/home_max_perceived_num"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="25" />
 
         <TextView
             android:id="@+id/home_max_perceived_txt"
@@ -102,12 +104,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big"
             android:fontFamily="@font/inter"
-            android:text="@string/home_precipitation_num"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/home_min_perceived_num"
-            app:layout_constraintTop_toBottomOf="@id/home_min_perceived_txt" />
+            app:layout_constraintTop_toBottomOf="@id/home_min_perceived_txt"
+            tools:text="45" />
 
         <TextView
             android:id="@+id/home_precipitation_txt"
@@ -127,12 +129,12 @@
             android:layout_marginTop="@dimen/margin_big"
             android:layout_marginEnd="@dimen/margin_biggest"
             android:fontFamily="@font/inter"
-            android:text="@string/home_wind_num"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/home_max_perceived_num"
-            app:layout_constraintTop_toBottomOf="@id/home_min_perceived_txt" />
+            app:layout_constraintTop_toBottomOf="@id/home_min_perceived_txt"
+            tools:text="23km/h" />
 
         <TextView
             android:id="@+id/home_wind_txt"
