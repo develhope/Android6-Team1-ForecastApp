@@ -31,7 +31,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_smaller"
-
             android:fontFamily="@font/inter"
             android:text="@string/home_day_of_mont_num"
             android:textColor="@color/white"
@@ -89,6 +88,7 @@
             app:layout_constraintTop_toBottomOf="@id/home_max_perceived_num" />
 
         <ImageView
+            android:id="@+id/home_img_weather"
             android:layout_width="@dimen/home_img_vector_base"
             android:layout_height="@dimen/home_img_vector_base"
             android:layout_marginTop="@dimen/margin_big"
