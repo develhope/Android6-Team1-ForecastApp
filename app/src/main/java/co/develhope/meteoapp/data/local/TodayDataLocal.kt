@@ -2,7 +2,7 @@ package co.develhope.meteoapp.data.local
 
 import org.threeten.bp.OffsetDateTime
 
-class TodayDataLocal : ArrayList<TodayDataLocal.HourlyLocal>() {
+class TodayDataLocal() : ArrayList<TodayDataLocal.HourlyLocal>() {
     data class HourlyLocal(
         val apparentTemperature: Double?,
         val cloudCover: Int?,

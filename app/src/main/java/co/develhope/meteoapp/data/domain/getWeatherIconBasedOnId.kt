@@ -2,11 +2,11 @@ package co.develhope.meteoapp.data.domain
 
 fun getWeatherIconBasedOnId(forecastIndex: Int): WeatherIcon {
     return when (forecastIndex) {
-        1 -> WeatherIcon.SUN
-        2 -> WeatherIcon.SUNCLOUD
-        3 -> WeatherIcon.SUNRAINCLOUD
-        4 -> WeatherIcon.RAINDROP
-        5 -> WeatherIcon.ARROW
+        0 -> WeatherIcon.SUN
+        1 -> WeatherIcon.SUNCLOUD
+        2 -> WeatherIcon.SUNRAINCLOUD
+        3 -> WeatherIcon.RAINDROP
+        4 -> WeatherIcon.ARROW
         else -> WeatherIcon.UNAVAILABLE
     }
 }
