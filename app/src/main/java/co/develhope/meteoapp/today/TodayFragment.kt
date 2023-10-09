@@ -36,7 +36,7 @@ class TodayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dailyViewModel.getDailyInfo(36.243, 14.2537)
+        dailyViewModel.getDailyInfo(38.132, 13.3356)
 
         setupAdapter()
         setupObserver()
