@@ -8,7 +8,7 @@ fun mapWindDirection(degree: Int?): String {
 
     val directions = listOf("N", "NE", "E", "SE", "S", "SW", "W", "NW", "N")
 
-    // Calculate the index matching the cardinal direction.
+    //  Cardinal direction ndex matching calculation
     val index = ((degree + 22.5) / 45).toInt() % 8
 
     return directions[index]
