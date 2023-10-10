@@ -14,7 +14,7 @@ import co.develhope.meteoapp.today.model.TodayData.Companion.title
 import co.develhope.meteoapp.today.viewholders.TodayTitleViewHolder
 import co.develhope.meteoapp.today.viewholders.TodayViewHolder
 
-class TodayAdapter(val todayscreen: List<TodayData>) :
+class TodayAdapter(var todayscreen: List<TodayData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val openElementIndex = mutableListOf<Int>()
@@ -62,5 +62,9 @@ class TodayAdapter(val todayscreen: List<TodayData>) :
             }
             is TodayTitleViewHolder -> holder.onBind(model as TodayData.TodayTitleData)
         }
+    }
+    fun setNewTodayList(newList: List<TodayData>){
+        todayscreen = newList
+        notifyDataSetChanged()
     }
 }
