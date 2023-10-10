@@ -15,7 +15,7 @@ class SearchScreenViewModel : ViewModel() {
     val cityList: LiveData<List<CityInfo>> = _cityList
 
     /**fun getCityList(): List<Search.SearchPlace>? {
-        //return _cityList.value
+    //return _cityList.value
     }**/
 
     fun getCity(cityName: String, language: String) {
