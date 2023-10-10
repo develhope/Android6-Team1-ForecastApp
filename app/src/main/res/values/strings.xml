@@ -8,4 +8,6 @@
     <string name="search_hint">Cerca Città</string>
     <string name="recentSearch">Ricerche Recenti</string>
     <string name="citySearch_item">Nome della città</string>
+    <string name="city_search" translatable="false">%s, %s</string>
+
 </resources>

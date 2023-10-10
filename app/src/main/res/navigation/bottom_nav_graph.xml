@@ -25,4 +25,7 @@
         android:name="co.develhope.meteoapp.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <action
+        android:id="@+id/action_searchFragment_to_homeFragment"
+        app:destination="@id/homeFragment" />
 </navigation>
