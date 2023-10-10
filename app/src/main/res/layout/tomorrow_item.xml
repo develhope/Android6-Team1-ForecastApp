@@ -5,8 +5,7 @@
     android:id="@+id/itemLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    tools:ignore="InvalidId">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/item_our"
@@ -15,7 +14,7 @@
         android:layout_weight="1"
         android:fontFamily="@font/inter"
         android:textColor="#230EA5"
-        android:textSize="15sp"
+        android:textSize="@dimen/text_size_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/day_time" />
@@ -56,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/inter"
+        android:fontFamily="@font/inter_bold"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/tomorrow_freccia"
@@ -116,7 +115,7 @@
                 android:text="@string/UV_index"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintHorizontal_bias="0.70"
                 app:layout_constraintStart_toEndOf="@id/percipita"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -133,11 +132,13 @@
 
             <TextView
                 android:id="@+id/Uvindex"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
+                android:gravity="start"
                 android:textColor="@color/black"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/Indiceuv"
                 tools:text="@string/UV" />
@@ -175,12 +176,14 @@
 
             <TextView
                 android:id="@+id/ventoNum"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
+                android:gravity="start"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/vento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/vento"
                 tools:text="@string/windpower" />
 
@@ -223,17 +226,19 @@
                 android:fontFamily="@font/inter"
                 android:text="@string/Rain"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@id/vento"
+                app:layout_constraintStart_toStartOf="@+id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/separator3" />
 
             <TextView
                 android:id="@+id/rainpercent"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
+                android:gravity="start"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/vento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/rain"
                 tools:text="@string/rainCM" />
 
