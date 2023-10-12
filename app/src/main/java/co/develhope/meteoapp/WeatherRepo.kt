@@ -19,7 +19,7 @@ class WeatherRepo {
 
 
     val startDay = OffsetDateTime.now().plusDays(1)
-    val endDay = OffsetDateTime.now().plusDays(2)
+    val endDay = OffsetDateTime.now().plusDays(1).plusHours(1)
     val formatter = DateTimeFormatter.ofPattern("YYYY-MM-dd", Locale.ITALIAN)
 
 
