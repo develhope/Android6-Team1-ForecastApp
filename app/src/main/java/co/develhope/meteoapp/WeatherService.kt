@@ -15,4 +15,14 @@ interface WeatherService {
         @Query("timezone") timezone: String,
         @Query("forecast_days") forecastDays: Int
     ): Response<TodayDataRemote>
+
+
+    @GET("/v1/forecast")
+    suspend fun getTomorrowWeather(
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
+        @Query("hourly") hourly: String,
+        @Query("timezone") timezone: String,
+        @Query("forecast_days") forecastDays: Int
+    ): Response<TodayDataRemote>
 }

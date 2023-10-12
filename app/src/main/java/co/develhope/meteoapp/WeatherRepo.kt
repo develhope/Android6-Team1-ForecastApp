@@ -1,14 +1,12 @@
 package co.develhope.meteoapp
 
 import co.develhope.meteoapp.data.local.TodayDataLocal
+import co.develhope.meteoapp.data.local.TomorrowDataLocal
 import co.develhope.meteoapp.data.remote.toTodayDataLocal
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonSyntaxException
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.threeten.bp.OffsetDateTime
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -20,7 +18,18 @@ class WeatherRepo {
 
     suspend fun getTodayWeather(lat: Double, lon: Double): TodayDataLocal? {
         val response = weatherService?.getTodayWeather(lat, lon, dailyData, "UTC", 1)
-        return response.toTodayDataLocal()
+        if (response != null) {
+            return response.toTodayDataLocal()
+        }
+        return null
+    }
+
+    suspend fun getTomorrowWeather(lat: Double, lon: Double): TomorrowDataLocal? {
+        val response = weatherService?.getTomorrowWeather(lat, lon, dailyData, "UTC", 2)
+        if (response != null) {
+            return response.toTomorrowDataLocal()
+        }
+        return null
     }
 
 
