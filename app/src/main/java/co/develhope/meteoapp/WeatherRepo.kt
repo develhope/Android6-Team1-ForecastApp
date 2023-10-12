@@ -3,15 +3,21 @@ package co.develhope.meteoapp
 import co.develhope.meteoapp.data.local.TodayDataLocal
 import co.develhope.meteoapp.data.local.TomorrowDataLocal
 import co.develhope.meteoapp.data.remote.toTodayDataLocal
+import co.develhope.meteoapp.data.remote.toTomorrowDataLocal
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.threeten.bp.LocalDate
 import org.threeten.bp.OffsetDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class WeatherRepo {
+
+    val currentDay = LocalDate.now().dayOfMonth
+    val currentMonth = LocalDate.now().monthValue
+
     private val dailyData =
         "temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m,uv_index,is_day"
     var weatherService: WeatherService = createRetrofitInstance().create(WeatherService::class.java)
@@ -25,11 +31,9 @@ class WeatherRepo {
     }
 
     suspend fun getTomorrowWeather(lat: Double, lon: Double): TomorrowDataLocal? {
-        val response = weatherService?.getTomorrowWeather(lat, lon, dailyData, "UTC", 2)
-        if (response != null) {
-            return response.toTomorrowDataLocal()
-        }
-        return null
+        val response = weatherService.getTomorrowWeather(lat, lon, dailyData, "UTC",  "2023-10-13", "2023-10-13")
+
+        return response.toTomorrowDataLocal()
     }
 
 

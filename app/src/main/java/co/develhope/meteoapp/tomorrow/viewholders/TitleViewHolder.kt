@@ -17,7 +17,7 @@ class TitleViewHolder(private val binding: TomorrowItemTitleBinding) :
     }
 
     fun onBind(model: TomorrowData.TomorrowTitle) {
-        val currentDate = LocalDate.now()
+        val currentDate = LocalDate.now().plusDays(1)
         val formattedDate = capitalizer(
             currentDate.format(
                 DateTimeFormatter.ofPattern(
