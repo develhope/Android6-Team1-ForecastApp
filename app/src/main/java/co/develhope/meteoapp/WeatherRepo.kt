@@ -9,14 +9,19 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.threeten.bp.LocalDate
 import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.format.DateTimeFormatter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 class WeatherRepo {
 
-    val currentDay = LocalDate.now().dayOfMonth
-    val currentMonth = LocalDate.now().monthValue
+
+    val startDay = OffsetDateTime.now().plusDays(1)
+    val endDay = OffsetDateTime.now().plusDays(2)
+    val formatter = DateTimeFormatter.ofPattern("YYYY-MM-dd", Locale.ITALIAN)
+
 
     private val dailyData =
         "temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m,uv_index,is_day"
@@ -31,7 +36,14 @@ class WeatherRepo {
     }
 
     suspend fun getTomorrowWeather(lat: Double, lon: Double): TomorrowDataLocal? {
-        val response = weatherService.getTomorrowWeather(lat, lon, dailyData, "UTC",  "2023-10-13", "2023-10-13")
+        val response = weatherService.getTomorrowWeather(
+            lat,
+            lon,
+            dailyData,
+            "UTC",
+            formatter.format(startDay),
+            formatter.format(endDay)
+        )
 
         return response.toTomorrowDataLocal()
     }
