@@ -1,5 +1,6 @@
 package co.develhope.meteoapp.home.viewHolder
 
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.domain.getWeatherIconBasedOnId
@@ -20,6 +21,8 @@ class HomeTodayViewHolder(private val binding: HomeCardBinding) :
         binding.homeWindNum.text = item.windSpeed.toString()
         binding.root.setOnClickListener {
             onClick(item)
+            binding.root.findNavController().navigate(R.id.home_screen_to_today)
+
 
         }
     }
