@@ -1,11 +1,9 @@
 package co.develhope.meteoapp.tomorrow
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import co.develhope.meteoapp.TomorrowViewModel
@@ -16,6 +14,7 @@ import co.develhope.meteoapp.databinding.FragmentTomorrowBinding
 import co.develhope.meteoapp.tomorrow.adapter.TomorrowAdapter
 import co.develhope.meteoapp.tomorrow.model.TomorrowData
 import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.format.DateTimeFormatter
 
 class TomorrowFragment : Fragment() {
 
@@ -34,7 +33,8 @@ class TomorrowFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tomorrowViewModel.getDailyInfo(38.132, 13.3356)
+        val selectedDate = Data.getDate()!!.format(DateTimeFormatter.ofPattern("YYYY-MM-d"))
+        tomorrowViewModel.getDailyInfo(38.132, 13.3356,selectedDate,selectedDate)
         setupAdapter()
         setupObserver()
     }

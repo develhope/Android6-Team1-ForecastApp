@@ -35,8 +35,10 @@ class HomeCardsViewHolder(private val binding: HomeCardBinding) :
         binding.homePrecipitationNum.text = item.precipitation.toString()
         binding.homeWindNum.text = item.windSpeed.toString()
         binding.root.setOnClickListener {
+            Data.saveDate(item.date)
             onClick(item)
             binding.root.findNavController().navigate(R.id.home_screen_to_tomorrw)
+
         }
     }
 }

@@ -14,6 +14,9 @@ object Data {
     fun saveDate (savedDate : OffsetDateTime){
         selectedDay = savedDate
     }
+    fun getDate():OffsetDateTime? {
+        return selectedDay
+    }
     fun getTodayTitle(): String = "Palermo, Sicilia"
     fun getTodayForecast(): List<TodayForecast> = listOf()
 

@@ -47,14 +47,14 @@ class WeatherRepo {
         return null
     }
 
-    suspend fun getTomorrowWeather(lat: Double, lon: Double): TomorrowDataLocal? {
+    suspend fun getTomorrowWeather(lat: Double, lon: Double,start:String,end:String): TomorrowDataLocal? {
         val response = weatherService.getTomorrowWeather(
             lat,
             lon,
             dailyData,
             "UTC",
-            formatter.format(startDay),
-            formatter.format(endDay)
+            start,
+            end
         )
 
         return response.toTomorrowDataLocal()
