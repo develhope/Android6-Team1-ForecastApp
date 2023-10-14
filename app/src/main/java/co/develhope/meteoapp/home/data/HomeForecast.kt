@@ -10,7 +10,7 @@ sealed class HomeForecast(val id: Int) {
         val date: OffsetDateTime,
         val minTemperature: Int,
         val maxTemperature: Int,
-        val weatherIcon: WeatherIcon,
+        val weatherIcon: Int,
         val precipitation: Int,
         val windSpeed: Int,
     ) : HomeForecast(HomeDaysId)
@@ -19,13 +19,25 @@ sealed class HomeForecast(val id: Int) {
         val textToShow: String
     ) : HomeForecast(HomeTitleId)
 
-    data class HomeSubtitle(
-        val textToShow: String
-    ) : HomeForecast(HomeSubtitleId)
+    object HomeSubtitle : HomeForecast(HomeSubtitleId)
+
+    data class HomeToday(
+        val date: OffsetDateTime,
+        val minTemperature: Int,
+        val maxTemperature: Int,
+        val weatherIcon: Int,
+        val precipitation: Int,
+        val windSpeed: Int,
+    ) : HomeForecast(HomeTodayId)
+
+
 
     companion object {
         const val HomeDaysId = 1
         const val HomeTitleId = 2
         const val HomeSubtitleId = 3
+        const val HomeTodayId = 4
+
+
     }
 }

@@ -18,6 +18,7 @@ import co.develhope.meteoapp.tomorrow.model.TomorrowData
 import org.threeten.bp.OffsetDateTime
 
 class TomorrowFragment : Fragment() {
+
     private val tomorrowViewModel: TomorrowViewModel by viewModels()
     private var _binding: FragmentTomorrowBinding? = null
     private val binding get() = _binding!!
@@ -30,7 +31,7 @@ class TomorrowFragment : Fragment() {
         return binding.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tomorrowViewModel.getDailyInfo(38.132, 13.3356)
@@ -38,7 +39,7 @@ class TomorrowFragment : Fragment() {
         setupObserver()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     private fun setupAdapter() {
         val tomorrowTitle = Data.getTomorrowTitle()
         val tomorrowItem = Data.getTomorrowForecast()
