@@ -8,12 +8,10 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CardSearchItemBinding
 import co.develhope.meteoapp.databinding.RecentSearchItemBinding
 import co.develhope.meteoapp.domainmodel.result.EventActionResult
-import co.develhope.meteoapp.dto.CityInfo
-
 
 class SearchAdapter(
     private val myItemClickListener: OnItemClickListener?,
-    private val recentSearchList: List<EventActionResult>,
+    private val recentSearchList: List<EventActionResult>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -34,7 +32,8 @@ class SearchAdapter(
             val regionName = newCityInfo.data.results[0].region
             binding.searchItemCity.text =
                 binding.root.context.getString(R.string.city_search, cityName, regionName)
-            binding.searchItemCard.setOnClickListener() {
+
+            binding.searchItemCard.setOnClickListener {
                 myItemClickListener?.onItemClick(cityName)
             }
         }
@@ -42,7 +41,7 @@ class SearchAdapter(
 
     inner class RecentSearchViewHolder(private val binding: RecentSearchItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(recentSearch: CityInfo) {
+        fun bind(recentSearch: EventActionResult.RecentSearch) {
             binding.searchItem.text = binding.root.context.getString(R.string.recentSearch)
         }
     }
@@ -85,6 +84,7 @@ class SearchAdapter(
                     if (cityInfo is EventActionResult.Success) {
                         val cityName = cityInfo.data.results[0].city
                         holder.bind(cityInfo)
+
                         holder.itemView.setOnClickListener {
                             myItemClickListener?.onItemClick(cityName)
                         }
@@ -93,7 +93,6 @@ class SearchAdapter(
             }
 
             is RecentSearchViewHolder -> {
-                // TODO: Gestire binding e l'evento di click per gli elementi di recentSearch se necessario.
             }
         }
     }

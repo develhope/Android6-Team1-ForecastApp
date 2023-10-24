@@ -19,10 +19,10 @@ fun Response<CityInfoDTO>.toSearchCityInfo() : CityInfoLocal?{
 
         response?.results?.forEach {
             model.add(CityInfoLocal.ResultLocal(
-                name = it?.name,
-                admin1 = it?.admin1,
-                lat = it?.latitude,
-                long = it?.longitude
+                name = it.name,
+                admin1 = it.admin1,
+                lat = it.latitude,
+                long = it.longitude
             ))
         }
         model

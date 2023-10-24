@@ -60,7 +60,10 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                return false
+                newText?.let {
+                    viewModel.getCity(newText, "it")
+                }
+                return true
             }
         })
     }
