@@ -1,6 +1,6 @@
 package co.develhope.meteoapp
 
-import co.develhope.meteoapp.dto.CityInfoDTO
+import co.develhope.meteoapp.dto.ResultDTO
 import retrofit2.Response
 
 class CityInfoLocal : ArrayList<CityInfoLocal.ResultLocal>(){
@@ -12,7 +12,7 @@ class CityInfoLocal : ArrayList<CityInfoLocal.ResultLocal>(){
     )
 }
 
-fun Response<CityInfoDTO>.toSearchCityInfo() : CityInfoLocal?{
+fun Response<ResultDTO>.toSearchCityInfo() : CityInfoLocal?{
     return if (this.isSuccessful) {
         val response = this.body()
         val model = CityInfoLocal()

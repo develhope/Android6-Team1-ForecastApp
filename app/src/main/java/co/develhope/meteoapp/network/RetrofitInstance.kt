@@ -1,15 +1,17 @@
 package co.develhope.meteoapp.network
 
 import android.util.Log
-import co.develhope.meteoapp.domainmodel.result.EventActionResult
+import co.develhope.meteoapp.domainmodel.NetError
+import co.develhope.meteoapp.domainmodel.Place
+import co.develhope.meteoapp.domainmodel.result.SearchPlaceResult
 import co.develhope.meteoapp.dto.GeocodingService
+import co.develhope.meteoapp.tomorrow.model.TomorrowData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-data class UniwhereError(val message: String)
 class RetrofitInstance {
 
     private val geoCodingUrl = "https://geocoding-api.open-meteo.com/v1/"
@@ -25,7 +27,7 @@ class RetrofitInstance {
 
     private val api = retrofit.create(GeocodingService::class.java)
 
-    suspend fun getPlace(name: String, language: String): EventActionResult {
+    suspend fun getPlace(name: String, language: String): SearchPlaceResult {
         val response = api.getInfoCity(name = name, language = language)
         Log.d("Response", response.toString())
 
@@ -33,15 +35,14 @@ class RetrofitInstance {
             val cityInfoDTO = response.body()
 
             if (cityInfoDTO != null) {
-                val cityInfo =
-                    cityInfoDTO.toDomain()
-                EventActionResult.Success(cityInfo)
+                val cityInfo : List<Place> = cityInfoDTO.toDomain()
+                SearchPlaceResult.Success(cityInfo)
             } else {
-                EventActionResult.Error(UniwhereError("Errore durante la richiesta"))
+                SearchPlaceResult.Error(NetError("Errore durante la richiesta"))
 
             }
         } catch (e: Exception) {
-            EventActionResult.Error(UniwhereError("Errore di rete: ${e.message}"))
+            SearchPlaceResult.Error(NetError("Errore di rete: ${e.message}"))
 
         }
     }

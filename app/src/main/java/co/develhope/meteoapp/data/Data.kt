@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi
 import co.develhope.meteoapp.data.domain.TodayForecast
 import co.develhope.meteoapp.data.domain.TomorrowForecast
 import co.develhope.meteoapp.data.domain.WeatherIcon
+import co.develhope.meteoapp.domainmodel.Place
 import co.develhope.meteoapp.home.data.HomeForecast
 import co.develhope.meteoapp.tomorrow.model.TomorrowData
 import org.threeten.bp.OffsetDateTime
@@ -213,4 +214,11 @@ object Data {
             )
         )
     }
+
+    private var selectedPlace : Place? = null
+    fun saveSelectedPlace(place: Place) {
+        selectedPlace = place
+    }
+    //TO DO use this to read the selected place in home and specificDay screen
+    fun getSelectedPlace() = selectedPlace
 }
