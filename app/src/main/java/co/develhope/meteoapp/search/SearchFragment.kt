@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.R
@@ -17,7 +17,7 @@ import co.develhope.meteoapp.domainmodel.Place
 
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
-    private val viewModel: SearchScreenViewModel = ViewModelProvider(this)[SearchScreenViewModel::class.java]
+    private val viewModel: SearchScreenViewModel by viewModels()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -56,14 +56,14 @@ class SearchFragment : Fragment() {
     private fun setupSearch() {
         binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {
+                /*query?.let {
                     viewModel.getCity(query, "it")
-                }
+                }*/
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let {
+                if (!newText.isNullOrEmpty() && newText.length > 3){
                     viewModel.getCity(newText, "it")
                 }
                 return true
