@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">meteoapp</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 
 
@@ -11,3 +13,53 @@
     <string name="city_search" translatable="false">%s, %s</string>
 
 </resources>
+
+    <string name="today_item_ora">11:00</string>
+    <string name="today_item_gradi">31°</string>
+    <string name="today_item_precipitazioni">0%</string>
+    <string name="today_title_location">Palermo, Sicilia</string>
+    <string name="today_title_oggi">Oggi,</string>
+    <string name="title_oggi">Oggi</string>
+    <string name="today_title_clima">Sereno</string>
+    <string name="percepitagradi">45°</string>
+    <string name="indice_uv">Indice UV</string>
+    <string name="indice_uv_misura">5/10</string>
+    <string name="umidita">Umidità</string>
+    <string name="umidita_percentuale">60%</string>
+
+    <string name="copertura">Copertura</string>
+    <string name="copertura_percentuale">24%</string>
+    <string name="pioggia">Pioggia</string>
+    <string name="pioggia_cm">0cm</string>
+    <string name="today_giorno_settimana">Domenica 10 settembre</string>
+    <string name="today_title_city">Palermo</string>
+    <string name="today_title_region">Sicilia</string>
+    <string name="today_title_date">Domenica 10 settembre</string>
+    <string name="day_time">00:00</string>
+    <string name="tomorrow_temp">14°</string>
+    <string name="precipitationTXT">80%</string>
+    <string name="percived">Percepita</string>
+    <string name="UV_index">Indice UV</string>
+    <string name="temperature">12°</string>
+    <string name="UV">1/10</string>
+    <string name="Umidity">Umidità</string>
+    <string name="wind">Vento</string>
+    <string name="windpower">NNE 1km/h</string>
+    <string name="Umiditynum">80%</string>
+    <string name="Rain">Pioggia</string>
+    <string name="rainCM">0cm</string>
+    <string name="coperturaPercent">3%</string>
+    <string name="place_region">Palermo, Sicilia</string>
+    <string name="tomorrowtxt">Domani</string>
+    <string name="tomorrowinfos">Lunedì 11 settembre</string>
+    //home screen strings
+
+    <string name="home_today">Oggi</string>
+    <string name="home_day_of_mont_num">11/09</string>
+    <string name="home_temp_min">min</string>
+    <string name="home_temp_max">max</string>
+    <string name="home_precipitation_txt">precip.</string>
+    <string name="home_wind_txt">vento</string>
+    <string name="home_next_days">PROSSIMI 5 GIORNI</string>
+</resources>
+
