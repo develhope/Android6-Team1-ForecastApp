@@ -8,112 +8,109 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/item_our"
+        android:id="@+id/itemOur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
         android:layout_weight="1"
         android:fontFamily="@font/inter"
-        android:textColor="#230EA5"
+        android:textColor="@color/todaytext1"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/day_time" />
+        tools:text="@string/today_item_ora" />
 
     <ImageView
         android:id="@+id/itemimg"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:src="@drawable/fluent_emoji_crescent_moon"
+        android:layout_marginTop="@dimen/margin_smaller"
         app:layout_constraintEnd_toStartOf="@id/tomorrow_temp"
-        app:layout_constraintStart_toEndOf="@id/item_our"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/itemOur"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sun" />
 
     <TextView
         android:id="@+id/tomorrow_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_smaller"
+        android:layout_weight="1"
         android:fontFamily="@font/inter_bold"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/tomorrow_temp" />
+        tools:text="@string/today_item_gradi" />
 
     <ImageView
         android:id="@+id/tomorrow_freccia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/margin_big"
         android:rotation="180"
-        android:src="@drawable/arrow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow" />
 
     <TextView
         android:id="@+id/tomorrow_precipitation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="@dimen/margin_smaller"
+        android:layout_marginEnd="@dimen/margin_bigger"
         android:fontFamily="@font/inter_bold"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size_large"
         app:layout_constraintEnd_toStartOf="@id/tomorrow_freccia"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/precipitationTXT" />
+        tools:text="@string/today_item_precipitazioni" />
 
     <ImageView
         android:id="@+id/tomorrow_precipitationimg"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:src="@drawable/raindrop"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_smaller"
         app:layout_constraintEnd_toStartOf="@id/tomorrow_precipitation"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/raindrop" />
 
-    <View
-        android:id="@+id/separator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/barralista"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemimg" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="@dimen/margin_big"
         android:elevation="16dp"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tomorrow_freccia"
-
+        app:layout_constraintTop_toBottomOf="@id/itemimg"
+        tools:visibility="visible">
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="16dp">
 
             <TextView
                 android:id="@+id/percipita"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="@string/percived"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/percived" />
 
             <TextView
                 android:id="@+id/Indiceuv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
                 android:text="@string/UV_index"
-                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.70"
                 app:layout_constraintStart_toEndOf="@id/percipita"
@@ -123,9 +120,10 @@
                 android:id="@+id/percepitaNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
+                android:text="@string/temperature"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/percipita"
                 tools:text="@string/temperature" />
@@ -134,10 +132,11 @@
                 android:id="@+id/Uvindex"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
                 android:gravity="start"
+                android:text="@string/UV"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/Indiceuv"
@@ -146,9 +145,11 @@
             <View
                 android:id="@+id/separator2"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/barralista"
+                android:layout_height="@dimen/height_tiny"
+                android:layout_marginHorizontal="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@color/separator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/percepitaNum" />
 
@@ -156,10 +157,8 @@
                 android:id="@+id/umidita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/inter"
+                android:layout_marginTop="@dimen/margin_big"
                 android:text="@string/Umidity"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/separator2" />
 
@@ -167,10 +166,8 @@
                 android:id="@+id/vento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/inter"
+                android:layout_marginTop="@dimen/margin_big"
                 android:text="@string/wind"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/separator2" />
 
@@ -178,11 +175,13 @@
                 android:id="@+id/ventoNum"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
                 android:gravity="start"
+                android:text="@string/windpower"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/vento"
                 tools:text="@string/windpower" />
@@ -191,9 +190,10 @@
                 android:id="@+id/umiditaNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
+                android:text="@string/Umiditynum"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/umidita"
                 tools:text="@string/Umiditynum" />
@@ -201,9 +201,11 @@
             <View
                 android:id="@+id/separator3"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/barralista"
+                android:layout_height="@dimen/height_tiny"
+                android:layout_marginHorizontal="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@color/separator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ventoNum" />
 
@@ -211,10 +213,8 @@
                 android:id="@+id/copertura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/inter"
+                android:layout_marginTop="@dimen/margin_big"
                 android:text="@string/copertura"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/separator3" />
 
@@ -222,10 +222,8 @@
                 android:id="@+id/rain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/inter"
-                android:text="@string/Rain"
-                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/margin_big"
+                android:text="@string/pioggia"
                 app:layout_constraintStart_toStartOf="@+id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/separator3" />
 
@@ -233,10 +231,11 @@
                 android:id="@+id/rainpercent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
                 android:gravity="start"
+                android:text="@string/pioggia_cm"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/Indiceuv"
                 app:layout_constraintTop_toBottomOf="@id/rain"
@@ -246,22 +245,25 @@
                 android:id="@+id/coperturapercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
+                android:text="@string/copertura_percentuale"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/copertura"
                 tools:text="@string/coperturaPercent" />
 
-            <View
-                android:id="@+id/separator4"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/barralista"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rainpercent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+    <View
+        android:id="@+id/separator4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_tiny"
+        android:layout_marginHorizontal="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_bigger_2"
+        android:background="@color/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

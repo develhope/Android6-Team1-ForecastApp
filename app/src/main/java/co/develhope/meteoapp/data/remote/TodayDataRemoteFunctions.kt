@@ -24,7 +24,7 @@ fun Response<TodayDataRemote>.toTodayDataLocal(): TodayDataLocal? {
         response?.hourly?.time?.let {
             it.forEachIndexed { index, s ->
                 val windDirection =
-                    mapWindDirection(response.hourly.winddirection10m?.getOrNull(index))
+                    TomorrowMapWindDirection(response.hourly.winddirection10m?.getOrNull(index))
                 model.add(
                     TodayDataLocal.HourlyLocal(
                         apparentTemperature = response.hourly.apparentTemperature?.getOrNull(

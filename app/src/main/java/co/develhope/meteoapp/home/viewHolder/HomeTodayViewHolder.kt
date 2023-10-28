@@ -8,26 +8,12 @@ import co.develhope.meteoapp.data.domain.getWeatherIconBasedOnId
 import co.develhope.meteoapp.data.domain.setWeatherIcon
 import co.develhope.meteoapp.databinding.HomeCardBinding
 import co.develhope.meteoapp.home.data.HomeForecast
-import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
-import java.util.Locale
 
-class HomeCardsViewHolder(private val binding: HomeCardBinding) :
+class HomeTodayViewHolder(private val binding: HomeCardBinding) :
     RecyclerView.ViewHolder(binding.root) {
-    fun bind(item: HomeForecast.HomeDays, onClick: (HomeForecast) -> Unit) {
-        val today = OffsetDateTime.now()
-        val tomorrow = OffsetDateTime.now().plusDays(1)
-
-        if (item.date.dayOfMonth == today.dayOfMonth) {
-            Data.saveDate(item.date)
-            binding.dayOfTheWeekTxt.text = binding.root.context.getString(R.string.title_oggi)
-        } else if (item.date.dayOfMonth == tomorrow.dayOfMonth) {
-            binding.dayOfTheWeekTxt.text = binding.root.context.getString(R.string.tomorrowtxt)
-        } else {
-            binding.dayOfTheWeekTxt.text =
-                item.date.format(DateTimeFormatter.ofPattern("EEEE", Locale.ITALIAN))
-                    .replaceFirstChar { it.uppercase() }
-        }
+    fun bind(item: HomeForecast.HomeToday, onClick: (HomeForecast) -> Unit) {
+        binding.dayOfTheWeekTxt.text = binding.root.context.getString(R.string.title_oggi)
         binding.dayOfMonthTxt.text = item.date.format(DateTimeFormatter.ofPattern("dd/MM"))
         binding.homeMinPerceivedNum.text = item.minTemperature.toString()
         binding.homeMaxPerceivedNum.text = item.maxTemperature.toString()
@@ -37,7 +23,8 @@ class HomeCardsViewHolder(private val binding: HomeCardBinding) :
         binding.root.setOnClickListener {
             Data.saveDate(item.date)
             onClick(item)
-            binding.root.findNavController().navigate(R.id.home_screen_to_tomorrw)
+            binding.root.findNavController().navigate(R.id.home_screen_to_today)
+
 
         }
     }

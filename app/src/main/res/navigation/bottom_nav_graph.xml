@@ -9,12 +9,22 @@
         android:id="@+id/homeFragment"
         android:name="co.develhope.meteoapp.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/home_screen_to_today"
+            app:destination="@id/todayFragment"/>
+    <action
+        android:id="@+id/home_screen_to_tomorrw"
+        app:destination="@id/tomorrowFragment"/>
+    </fragment>
+
+
     <fragment
         android:id="@+id/todayFragment"
         android:name="co.develhope.meteoapp.today.TodayFragment"
         android:label="fragment_today"
         tools:layout="@layout/fragment_today" />
+
     <fragment
         android:id="@+id/tomorrowFragment"
         android:name="co.develhope.meteoapp.tomorrow.TomorrowFragment"
