@@ -1,6 +1,8 @@
 package co.develhope.meteoapp
 
 import android.os.Bundle
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
@@ -43,8 +45,15 @@ class MainActivity : AppCompatActivity() {
                     it.onNavDestinationSelected(navController)
                 }
             }
-
         }
+    }
 
+    // Funzione per mostrare l'Error Dialog
+    fun hideBottomNavigationView() {
+        binding.bottomNavigationView.visibility = INVISIBLE
+    }
+
+    fun showBottomNavigationView() {
+        binding.bottomNavigationView.visibility = VISIBLE
     }
 }
