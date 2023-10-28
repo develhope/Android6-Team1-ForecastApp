@@ -2,11 +2,11 @@ package co.develhope.meteoapp.today
 
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import co.develhope.meteoapp.DailyViewModel
 import co.develhope.meteoapp.data.Data

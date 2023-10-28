@@ -8,7 +8,7 @@ class HomeSubtitleViewHolder(private val binding: HomeSubtitleBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: HomeForecast.HomeSubtitle) {
-        binding.homeSubtitle.text = item.textToShow
+//        binding.homeSubtitle.text = item.textToShow
 
     }
 }
