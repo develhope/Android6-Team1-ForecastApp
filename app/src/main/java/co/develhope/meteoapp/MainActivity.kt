@@ -1,8 +1,9 @@
 package co.develhope.meteoapp
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
@@ -13,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -48,12 +50,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Funzione per mostrare l'Error Dialog
-    fun hideBottomNavigationView() {
-        binding.bottomNavigationView.visibility = INVISIBLE
+    fun setBottomNavVisibility(visibility: Int) {
+        binding.bottomNavigationView.visibility = visibility
     }
 
-    fun showBottomNavigationView() {
-        binding.bottomNavigationView.visibility = VISIBLE
-    }
+}
+
+fun networkAvailability(context: Context): Boolean {
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val network = connectivityManager.activeNetwork
+    val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+
+    return networkCapabilities != null && (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) || networkCapabilities.hasTransport(
+        NetworkCapabilities.TRANSPORT_WIFI
+    ))
 }
