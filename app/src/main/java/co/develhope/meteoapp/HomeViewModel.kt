@@ -19,14 +19,15 @@ class HomeViewModel : ViewModel() {
     fun getDailyInfo(
         lat: Double,
         lon: Double
-    ) {viewModelScope.launch(Dispatchers.IO) {
-        val response = repo.getHomeWeather(lat, lon)
-        if (response != null) {
-            _result.postValue(response)
-            Log.i("Network Data", "$response")
-        } else {
-            Log.e("Network Error", "Could not achieve Network Call")
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = repo.getHomeWeather(lat, lon)
+            if (response != null) {
+                _result.postValue(response)
+                Log.i("Network Data", "$response")
+            } else {
+                Log.e("Network Error", "Could not achieve Network Call")
+            }
         }
-    }
     }
 }

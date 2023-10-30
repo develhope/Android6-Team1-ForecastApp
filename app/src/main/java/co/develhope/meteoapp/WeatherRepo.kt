@@ -1,7 +1,11 @@
 package co.develhope.meteoapp
 
 import co.develhope.meteoapp.data.local.TodayDataLocal
+import co.develhope.meteoapp.data.local.TomorrowDataLocal
+import co.develhope.meteoapp.data.local.WeeklyDataLocal
+import co.develhope.meteoapp.data.remote.toHomeDataLocal
 import co.develhope.meteoapp.data.remote.toTodayDataLocal
+import co.develhope.meteoapp.data.remote.toTomorrowDataLocal
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
@@ -14,13 +18,46 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class WeatherRepo {
+
     private val dailyData =
         "temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m,uv_index,is_day"
+
+    private val weeklyData =
+        "precipitation_sum,temperature_2m_max,temperature_2m_min,weathercode,windspeed_10m_max"
+
     var weatherService: WeatherService = createRetrofitInstance().create(WeatherService::class.java)
 
-    suspend fun getTodayWeather(lat: Double, lon: Double): TodayDataLocal? {
-        val response = weatherService?.getTodayWeather(lat, lon, dailyData, "UTC", 1)
-        return response?.toTodayDataLocal()
+    suspend fun getTodayWeather(
+        lat: Double,
+        lon: Double,
+    ): TodayDataLocal? {
+        val response =
+            weatherService?.getTodayWeather(lat, lon, dailyData, "UTC", 1)
+        if (response != null) {
+            return response.toTodayDataLocal()
+        }
+        return null
+    }
+
+    suspend fun getTomorrowWeather(
+        lat: Double,
+        lon: Double,
+        startDate: String,
+        endDate: String
+    ): TomorrowDataLocal? {
+        val response =
+            weatherService?.getTomorrowWeather(lat, lon, dailyData, "UTC", startDate, endDate)
+        if (response != null) {
+            return response.toTomorrowDataLocal()
+        }
+        return null
+    }
+
+    suspend fun getHomeWeather(lat: Double, lon: Double): WeeklyDataLocal? {
+
+        val response = weatherService.getWeeklyWeather(lat, lon, weeklyData, "UTC")
+
+        return response.toHomeDataLocal()
     }
 
 

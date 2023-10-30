@@ -4,6 +4,7 @@ import co.develhope.meteoapp.data.local.TodayDataLocal
 import co.develhope.meteoapp.data.local.TomorrowDataLocal
 import retrofit2.Response
 
+
     fun TomorrowMapWindDirection(degree: Int?): String {
         if (degree == null) return "N/A"
 
