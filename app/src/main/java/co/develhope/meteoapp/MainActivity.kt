@@ -4,12 +4,14 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import co.develhope.meteoapp.databinding.ActivityMainBinding
+import co.develhope.meteoapp.home.data.HomeForecast.HomeSubtitle.id
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -50,10 +52,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        if (!networkAvailability(this)) {
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.errorFragment)
+            setBottomNavVisibility(View.GONE)
+        }
+    }
+
     fun setBottomNavVisibility(visibility: Int) {
         binding.bottomNavigationView.visibility = visibility
     }
-
 }
 
 fun networkAvailability(context: Context): Boolean {
