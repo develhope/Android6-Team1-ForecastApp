@@ -10,5 +10,5 @@ interface GeocodingService {
     suspend fun getInfoCity(
         @Query("name") name: String,
         @Query("language") language: String
-    ): Response<CityInfoDTO>
+    ): Response<ResultDTO>
 }

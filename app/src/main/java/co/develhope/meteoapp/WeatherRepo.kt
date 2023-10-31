@@ -41,6 +41,8 @@ class WeatherRepo {
     suspend fun getTodayWeather(lat: Double, lon: Double): TodayDataLocal? {
 
         val response = weatherService?.getTodayWeather(lat, lon, dailyData, "UTC", 1)
+        return response?.toTodayDataLocal()
+
         if (response != null) {
             return response.toTodayDataLocal()
         }

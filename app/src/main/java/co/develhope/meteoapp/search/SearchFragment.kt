@@ -4,20 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
+import android.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
-import co.develhope.meteoapp.domainmodel.result.EventActionResult
+import co.develhope.meteoapp.domainmodel.Place
 
 
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
-    private lateinit var viewModel: SearchScreenViewModel
+    private val viewModel: SearchScreenViewModel by viewModels()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,37 +30,43 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView: RecyclerView = binding.cityList
-        val recentSearchList: List<EventActionResult> = emptyList()
+        setupUi(emptyList())
+        setupObserver()
+        setupSearch()
+    }
+
+    private fun setupUi(placeList: List<Place>) {
         val adapter = SearchAdapter(
-            object : SearchAdapter.OnItemClickListener {
-                override fun onItemClick(cityName: String) {
-                    findNavController().navigate(R.id.homeFragment)
-                }
-            },
-            recentSearchList
-        )
-
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = adapter
-
-        viewModel = ViewModelProvider(this)[SearchScreenViewModel::class.java]
-
-        viewModel.cityList.observe(viewLifecycleOwner) {
+            placeList = placeList
+        ) {
+            findNavController().navigate(R.id.homeFragment)
+            Data.saveSelectedPlace(it)
         }
+        binding.cityList.layoutManager = LinearLayoutManager(requireContext())
+        binding.cityList.adapter = adapter
 
-        val searchView = binding.searchView
+    }
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    private fun setupObserver() {
+        viewModel.cityList.observe(viewLifecycleOwner) {
+            setupUi(it)
+        }
+    }
+
+    private fun setupSearch() {
+        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {
+                /*query?.let {
                     viewModel.getCity(query, "it")
-                }
+                }*/
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                return false
+                if (!newText.isNullOrEmpty() && newText.length > 3){
+                    viewModel.getCity(newText, "it")
+                }
+                return true
             }
         })
     }
