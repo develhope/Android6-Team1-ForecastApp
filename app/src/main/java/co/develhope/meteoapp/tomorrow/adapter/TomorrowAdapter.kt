@@ -12,7 +12,7 @@ import co.develhope.meteoapp.tomorrow.model.TomorrowData.Companion.title
 import co.develhope.meteoapp.tomorrow.viewholders.TitleViewHolder
 import co.develhope.meteoapp.tomorrow.viewholders.TomorrowViewHolder
 
-class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
+class TomorrowAdapter(var tomorrowList: List<TomorrowData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val indexOpenedItem = mutableListOf<Int>()
@@ -72,6 +72,11 @@ class TomorrowAdapter(val tomorrowList: List<TomorrowData>) :
     override fun getItemCount(): Int {
         return tomorrowList.size
 
+    }
+
+    fun setNewTomorrowList(newList: List<TomorrowData>) {
+        tomorrowList = newList
+        notifyDataSetChanged()
     }
 
 
