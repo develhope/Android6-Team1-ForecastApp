@@ -5,7 +5,6 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.databinding.TomorrowItemTitleBinding
 import co.develhope.meteoapp.tomorrow.model.TomorrowData
-import org.threeten.bp.LocalDate
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import java.util.Locale
@@ -54,7 +53,7 @@ class TitleViewHolder(private val binding: TomorrowItemTitleBinding) :
             binding.tomorrowinfo.text = dayAndMonth
         }
 
-//        binding.todayLocationTv.text = model.todayLocation
+        binding.tomorrowPlace.text = "Palermo, Sicilia"
 //        binding.todayConditionTv.text = Data.weatherCodetoCondition(Data.getSavedCondition()!!)
     }
 }
