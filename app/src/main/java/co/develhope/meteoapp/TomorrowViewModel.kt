@@ -21,11 +21,11 @@ class TomorrowViewModel : ViewModel() {
     fun getDailyInfo(
         lat: Double,
         lon: Double,
-        start:String,
-        end:String
+        start: String,
+        end: String
     ) {
         viewModelScope.launch(IO) {
-            val response = repo.getTomorrowWeather(lat, lon,start,end)
+            val response = repo.getTomorrowWeather(lat, lon, start, end)
             if (response != null) {
                 _result.postValue(response)
                 Log.i("Network Data", "$response")

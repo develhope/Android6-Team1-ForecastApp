@@ -26,7 +26,7 @@ class SearchScreenViewModel : ViewModel() {
                 val result : SearchPlaceResult = RetrofitInstance().getPlace(cityName, language = language)
 
                 when(result) {
-                    is Error -> TODO()
+                    is Error -> Log.e("ERROR", "network error ")
                     is Success -> {
                         _cityList.value = result.data
                     }

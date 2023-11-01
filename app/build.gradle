@@ -33,7 +33,7 @@ android {
     viewBinding {
         enabled = true
     }
-    dataBinding {
+    dataBinding{
         enabled = true
     }
     buildscript {

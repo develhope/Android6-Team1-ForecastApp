@@ -33,8 +33,8 @@ class TomorrowFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val selectedDate = Data.getDate()!!.format(DateTimeFormatter.ofPattern("YYYY-MM-d"))
-        tomorrowViewModel.getDailyInfo(38.132, 13.3356,selectedDate,selectedDate)
+        val selectedDate = Data.getDate()!!.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))
+        tomorrowViewModel.getDailyInfo(38.132, 13.3356, selectedDate, selectedDate)
         setupAdapter()
         setupObserver()
     }
