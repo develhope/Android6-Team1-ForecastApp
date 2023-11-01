@@ -55,5 +55,9 @@
     <string name="home_precipitation_txt">precip.</string>
     <string name="home_wind_txt">vento</string>
     <string name="home_next_days">PROSSIMI 5 GIORNI</string>
+
+    //Error Fragment
+    <string name="error_dialog_fragment_text">C’è stato un problema con il caricamento dei tuoi dati. Verifica la tua rete e riprova.</string>
+    <string name="error_dialog_fragment_button">Riprova</string>
 </resources>
 

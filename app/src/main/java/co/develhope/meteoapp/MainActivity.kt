@@ -1,6 +1,10 @@
 package co.develhope.meteoapp
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
@@ -47,4 +51,28 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (!networkAvailability(this)) {
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.errorFragment)
+            setBottomNavVisibility(View.GONE)
+        }
+    }
+
+    fun setBottomNavVisibility(visibility: Int) {
+        binding.bottomNavigationView.visibility = visibility
+    }
+}
+
+fun networkAvailability(context: Context): Boolean {
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val network = connectivityManager.activeNetwork
+    val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+
+    return networkCapabilities != null && (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) || networkCapabilities.hasTransport(
+        NetworkCapabilities.TRANSPORT_WIFI
+    ))
 }

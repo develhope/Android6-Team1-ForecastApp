@@ -22,4 +22,8 @@
     <color name="todaytext1">#230EA5</color>
     <color name="separator">#ABA4FF</color>
     <color name="home_item_card_background_color">#66FFFFFF</color>
+
+    <!--ErrorDialogFragment-->
+    <color name="darktext">#434C59</color>
+    <color name="errorbutton">#5347DC</color>
 </resources>
