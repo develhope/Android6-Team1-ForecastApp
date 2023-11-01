@@ -21,7 +21,7 @@ class WeatherRepo {
 
     val startDay = OffsetDateTime.now().plusDays(1)
     val endDay = OffsetDateTime.now().plusDays(1).plusHours(1)
-    val formatter = DateTimeFormatter.ofPattern("YYYY-MM-dd", Locale.ITALIAN)
+    val formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD", Locale.ITALIAN)
     private val dailyData =
         "temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m,uv_index,is_day"
 

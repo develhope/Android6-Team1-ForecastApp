@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.data.local.TomorrowDataLocal
 import co.develhope.meteoapp.data.local.WeeklyDataLocal
+import co.develhope.meteoapp.domainmodel.Place
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

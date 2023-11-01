@@ -34,7 +34,7 @@ class TitleViewHolder(private val binding: TomorrowItemTitleBinding) :
         val dayAndMonth = capitalizer(
             currentDate.format(
                 DateTimeFormatter.ofPattern(
-                    "d MMMM",
+                    "EEEE d MMMM",
                     Locale.ITALIAN
                 )
             )
