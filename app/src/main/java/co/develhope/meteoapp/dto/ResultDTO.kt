@@ -1,56 +1,22 @@
 package co.develhope.meteoapp.dto
 
+import co.develhope.meteoapp.data.remote.TodayDataRemote
 import co.develhope.meteoapp.domainmodel.Place
 import com.google.gson.annotations.SerializedName
 
+
 data class ResultDTO(
-    @SerializedName("admin1")
-    val admin1: String?,
-    @SerializedName("admin1_id")
-    val admin1Id: Int?,
-    @SerializedName("admin2")
-    val admin2: String?,
-    @SerializedName("admin2_id")
-    val admin2Id: Int?,
-    @SerializedName("admin3")
-    val admin3: String?,
-    @SerializedName("admin3_id")
-    val admin3Id: Int?,
-    @SerializedName("admin4")
-    val admin4: String?,
-    @SerializedName("admin4_id")
-    val admin4Id: Int?,
-    @SerializedName("country")
-    val country: String,
-    @SerializedName("country_code")
-    val countryCode: String?,
-    @SerializedName("country_id")
-    val countryId: Int?,
-    @SerializedName("elevation")
-    val elevation: Int?,
-    @SerializedName("feature_code")
-    val featureCode: String?,
-    @SerializedName("id")
-    val id: Int?,
-    @SerializedName("latitude")
-    val latitude: Double,
-    @SerializedName("longitude")
-    val longitude: Double,
-    @SerializedName("name")
-    val name: String,
-    @SerializedName("population")
-    val population: Int?,
-    @SerializedName("postcodes")
-    val postcodes: List<String?>?,
-    @SerializedName("timezone")
-    val timezone: String?
+    @SerializedName("generationtime_ms")
+    val generationtimeMs: Double,
+    @SerializedName("results")
+    val results: List<PlaceDTO>
 ) {
-    fun toDomain(): Place {
-        return Place(
-            city = name,
-            region = country,
-            lat = latitude,
-            long = longitude
-        )
+    fun toDomain(): List<Place> {
+        return results.map { Place(
+            city = it.name,
+            region = it.country,
+            lat = it.latitude,
+            long = it.longitude
+        )}
     }
 }
