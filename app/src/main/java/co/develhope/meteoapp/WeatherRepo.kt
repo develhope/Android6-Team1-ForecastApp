@@ -7,7 +7,11 @@ import co.develhope.meteoapp.data.remote.toHomeDataLocal
 import co.develhope.meteoapp.data.remote.toTodayDataLocal
 import co.develhope.meteoapp.data.remote.toTomorrowDataLocal
 import com.google.gson.GsonBuilder
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Protocol
+import okhttp3.Response
+import okhttp3.ResponseBody.Companion.toResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import org.threeten.bp.OffsetDateTime
 import retrofit2.Retrofit
@@ -50,21 +54,41 @@ class WeatherRepo {
     fun createRetrofitInstance(): Retrofit {
         val baseUrl = "https://api.open-meteo.com"
         val loggingInterceptor = HttpLoggingInterceptor()
+        val tryCatchInterceptor = TryCatchInterceptor()
         val gson1 = GsonBuilder()
             .registerTypeAdapter(OffsetDateTime::class.java, OffsetDateTimeAdapter())
             .create()
 
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-        val httpClient = OkHttpClient.Builder().addInterceptor(loggingInterceptor)
+        val httpClient = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(tryCatchInterceptor)
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS).build()
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .build()
 
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create(gson1))
             .client(httpClient)
             .build()
+    }
+
+    class TryCatchInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response {
+            return try {
+                chain.proceed(chain.request())
+            } catch (e: Exception) {
+                Response.Builder()
+                    .code(418)
+                    .message("Errore di rete")
+                    .protocol(Protocol.HTTP_1_1)
+                    .request(chain.request())
+                    .body(ByteArray(0).toResponseBody(null))
+                    .build()
+            }
+        }
     }
 }
