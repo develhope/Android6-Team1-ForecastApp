@@ -1,9 +1,7 @@
 package co.develhope.meteoapp.home.viewHolder
 
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.data.domain.getWeatherIconBasedOnId
 import co.develhope.meteoapp.data.domain.setWeatherIcon
 import co.develhope.meteoapp.databinding.HomeCardBinding
@@ -21,11 +19,7 @@ class HomeTodayViewHolder(private val binding: HomeCardBinding) :
         binding.homePrecipitationNum.text = item.precipitation.toString()
         binding.homeWindNum.text = item.windSpeed.toString()
         binding.root.setOnClickListener {
-            Data.saveDate(item.date)
             onClick(item)
-            binding.root.findNavController().navigate(R.id.home_screen_to_today)
-
-
         }
     }
 }

@@ -2,22 +2,21 @@ package co.develhope.meteoapp.data
 
 import co.develhope.meteoapp.data.domain.TodayForecast
 import co.develhope.meteoapp.data.domain.TomorrowForecast
-import co.develhope.meteoapp.data.domain.WeatherIcon
 import co.develhope.meteoapp.domainmodel.Place
-import co.develhope.meteoapp.home.data.HomeForecast
 import org.threeten.bp.OffsetDateTime
-import org.threeten.bp.format.DateTimeFormatter
 
-object Data {
+class Data {
 
     private var selectedDay: OffsetDateTime? = OffsetDateTime.now().plusDays(1)
 
-    fun saveDate (savedDate : OffsetDateTime){
+    fun saveDate(savedDate: OffsetDateTime) {
         selectedDay = savedDate
     }
-    fun getDate():OffsetDateTime? {
+
+    fun getDate(): OffsetDateTime? {
         return selectedDay
     }
+
     fun getTodayTitle(): String = "Palermo, Sicilia"
     fun getTodayForecast(): List<TodayForecast> = listOf()
 
@@ -81,10 +80,11 @@ object Data {
 //        )
 //    }
 
-    private var selectedPlace : Place? = null
+    private var selectedPlace: Place? = null
     fun saveSelectedPlace(place: Place) {
         selectedPlace = place
     }
+
     //TO DO use this to read the selected place in home and specificDay screen
     fun getSelectedPlace() = selectedPlace
 

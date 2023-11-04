@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import co.develhope.meteoapp.DailyViewModel
 import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.data.domain.TodayForecast
@@ -15,14 +14,16 @@ import co.develhope.meteoapp.data.local.TodayDataLocal
 import co.develhope.meteoapp.databinding.FragmentTodayBinding
 import co.develhope.meteoapp.today.adapter.TodayAdapter
 import co.develhope.meteoapp.today.model.TodayData
+import org.koin.android.ext.android.inject
 import org.threeten.bp.OffsetDateTime
 
 class TodayFragment : Fragment() {
     private var _binding: FragmentTodayBinding? = null
     private val binding get() = _binding!!
 
-    private val dailyViewModel: DailyViewModel by viewModels()
+    private val dailyViewModel: DailyViewModel by inject()
 
+    private val data: Data by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,8 +46,8 @@ class TodayFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setupAdapter() {
-        val todayForecast = Data.getTodayForecast()
-        val todayTitle = Data.getTodayTitle()
+        val todayForecast = data.getTodayForecast()
+        val todayTitle = data.getTodayTitle()
         val todayItems = todayList(todayForecast, todayTitle)
         binding.todayRecycler.adapter = TodayAdapter(listOf())
     }
