@@ -2,7 +2,6 @@ package co.develhope.meteoapp.tomorrow.viewholders
 
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.databinding.TomorrowItemTitleBinding
 import co.develhope.meteoapp.tomorrow.model.TomorrowData
 import org.threeten.bp.OffsetDateTime
@@ -12,17 +11,17 @@ import java.util.Locale
 class TitleViewHolder(private val binding: TomorrowItemTitleBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun capitalizer(input: String): String {
-        return input.split(" ").joinToString(" ") {
-            it.capitalize()
-        }
+    private fun capitalizer(input: String): String {
+        return input
+            .split(" ")
+            .joinToString(" ") { word ->
+                word.replaceFirstChar { it.titlecase(Locale.ROOT) }
+            }
     }
 
     fun onBind(model: TomorrowData.TomorrowTitle) {
-        val currentDate = Data.getDate()
-
         val fullDate = capitalizer(
-            currentDate!!.format(
+            model.tomorrowTitleDate.format(
                 DateTimeFormatter.ofPattern(
                     "EEEE d MMMM",
                     Locale.ITALIAN
@@ -31,7 +30,7 @@ class TitleViewHolder(private val binding: TomorrowItemTitleBinding) :
         )
 
         val dayAndMonth = capitalizer(
-            currentDate.format(
+            model.tomorrowTitleDate.format(
                 DateTimeFormatter.ofPattern(
                     "EEEE d MMMM",
                     Locale.ITALIAN
@@ -39,21 +38,28 @@ class TitleViewHolder(private val binding: TomorrowItemTitleBinding) :
             )
         )
 
-        val formattedWeekDay = capitalizer(currentDate.format(DateTimeFormatter.ofPattern("EEEE", Locale.ITALIAN)))
+        val formattedWeekDay = capitalizer(
+            model.tomorrowTitleDate.format(
+                DateTimeFormatter.ofPattern(
+                    "EEEE",
+                    Locale.ITALIAN
+                )
+            )
+        )
 
         val tomorrow = OffsetDateTime.now().plusDays(1)
 
-        val weekDay = currentDate.dayOfMonth
+        val weekDay = model.tomorrowTitleDate.dayOfMonth
 
         if (weekDay == tomorrow.dayOfMonth) {
             binding.tomorrowtest.text = binding.root.context.getString(R.string.tomorrowtxt)
             binding.tomorrowinfo.text = fullDate
-        } else{
+        } else {
             binding.tomorrowtest.text = formattedWeekDay
             binding.tomorrowinfo.text = dayAndMonth
         }
 
-        binding.tomorrowPlace.text = "Palermo, Sicilia"
+        binding.tomorrowPlace.text = model.tomorrowLocation
 //        binding.todayConditionTv.text = Data.weatherCodetoCondition(Data.getSavedCondition()!!)
     }
 }

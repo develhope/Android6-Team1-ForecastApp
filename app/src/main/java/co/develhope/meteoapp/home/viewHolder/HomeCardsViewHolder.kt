@@ -1,9 +1,7 @@
 package co.develhope.meteoapp.home.viewHolder
 
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.data.domain.getWeatherIconBasedOnId
 import co.develhope.meteoapp.data.domain.setWeatherIcon
 import co.develhope.meteoapp.databinding.HomeCardBinding
@@ -18,15 +16,20 @@ class HomeCardsViewHolder(private val binding: HomeCardBinding) :
         val today = OffsetDateTime.now()
         val tomorrow = OffsetDateTime.now().plusDays(1)
 
-        if (item.date.dayOfMonth == today.dayOfMonth) {
-            Data.saveDate(item.date)
-            binding.dayOfTheWeekTxt.text = binding.root.context.getString(R.string.title_oggi)
-        } else if (item.date.dayOfMonth == tomorrow.dayOfMonth) {
-            binding.dayOfTheWeekTxt.text = binding.root.context.getString(R.string.tomorrowtxt)
-        } else {
-            binding.dayOfTheWeekTxt.text =
-                item.date.format(DateTimeFormatter.ofPattern("EEEE", Locale.ITALIAN))
-                    .replaceFirstChar { it.uppercase() }
+        when (item.date.dayOfMonth) {
+            today.dayOfMonth -> {
+                binding.dayOfTheWeekTxt.text = binding.root.context.getString(R.string.title_oggi)
+            }
+
+            tomorrow.dayOfMonth -> {
+                binding.dayOfTheWeekTxt.text = binding.root.context.getString(R.string.tomorrowtxt)
+            }
+
+            else -> {
+                binding.dayOfTheWeekTxt.text =
+                    item.date.format(DateTimeFormatter.ofPattern("EEEE", Locale.ITALIAN))
+                        .replaceFirstChar { it.uppercase() }
+            }
         }
         binding.dayOfMonthTxt.text = item.date.format(DateTimeFormatter.ofPattern("dd/MM"))
         binding.homeMinPerceivedNum.text = item.minTemperature.toString()
@@ -35,10 +38,7 @@ class HomeCardsViewHolder(private val binding: HomeCardBinding) :
         binding.homePrecipitationNum.text = item.precipitation.toString()
         binding.homeWindNum.text = item.windSpeed.toString()
         binding.root.setOnClickListener {
-            Data.saveDate(item.date)
             onClick(item)
-            binding.root.findNavController().navigate(R.id.home_screen_to_tomorrw)
-
         }
     }
 }
