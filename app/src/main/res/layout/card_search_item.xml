@@ -32,7 +32,7 @@ android:layout_height="wrap_content">
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:padding="@dimen/_25dp"
-        android:text="@string/citySearch_item"
+        android:text="@string/city_search"
         android:textColor="@color/white"
         android:textSize="@dimen/_20sp" />
 

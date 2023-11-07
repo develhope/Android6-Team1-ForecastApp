@@ -27,13 +27,14 @@ class SearchAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(place: Place) {
             val cityName = place.city
-            val regionName = place.region
-            binding.searchItemCity.text =
-                binding.root.context.getString(R.string.city_search, cityName, regionName)
+            val regionName = place.country
+            val formattedText = "${cityName}, ${regionName}"
+            binding.searchItemCity.text = formattedText
 
             binding.searchItemCard.setOnClickListener {
                 onPlaceClicked(place)
-                sharedPreferences.edit().putString("selected_place", place.city).apply()
+                sharedPreferences.edit()
+                    .putString("selected_place", formattedText).apply()
             }
         }
     }

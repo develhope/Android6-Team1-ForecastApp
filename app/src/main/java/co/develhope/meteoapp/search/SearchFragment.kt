@@ -23,6 +23,7 @@ class SearchFragment : Fragment() {
     private val viewModel: SearchScreenViewModel by viewModels()
     private val binding get() = _binding!!
 
+    private val placeList = mutableListOf<Place>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -32,34 +33,63 @@ class SearchFragment : Fragment() {
 
     private val sharedPreferences by lazy {
         requireContext().getSharedPreferences("meteo_preferences", Context.MODE_PRIVATE)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //TEST
+        val selectedPlace = sharedPreferences.getString("selected_place", "")
+        Log.d("SelectedPlace", "Value: $selectedPlace")
 
-        setupUi(emptyList(), sharedPreferences)
-        setupObserver()
-        setupSearch()
+        if (!selectedPlace.isNullOrEmpty() && !placeList.any { it.city == selectedPlace }) {
+            placeList.add(Place(selectedPlace, "", 2.4, 4.3))
+
+            val citiesFromNetwork = viewModel.cityList.value ?: emptyList()
+            placeList.addAll(citiesFromNetwork)
+            placeList.distinct()
+            //END TEST
 
 
-        val allData = sharedPreferences.all
-        for ((key, value) in allData) {
-            Log.d("SharedPreferences", "Key: $key, Value: $value")
+            setupUi(placeList, sharedPreferences)
+            setupObserver()
+            setupSearch()
         }
-
     }
 
+
     private fun setupUi(placeList: List<Place>, sharedPreferences: SharedPreferences) {
+        val uniquePlaceList = placeList.distinctBy { it.city }
         val adapter = SearchAdapter(
-            placeList = placeList,
+            placeList = uniquePlaceList,
             onPlaceClicked = {
                 findNavController().navigate(R.id.homeFragment)
                 Data.saveSelectedPlace(it)
+                onCitySelected(it)
             },
             sharedPreferences = sharedPreferences
         )
         binding.cityList.layoutManager = LinearLayoutManager(requireContext())
         binding.cityList.adapter = adapter
+
+        val maxSavedCities = 5
+        if (placeList.size > maxSavedCities) {
+            val trimmedPlaceList = placeList.take(maxSavedCities)
+            val placeNames = trimmedPlaceList.map { "${it.city}, ${it.country}" }
+            saveRecentCities(placeNames.toSet())
+        }
+    }
+    private fun onCitySelected(city: Place) {
+        val recentCitiesSet = sharedPreferences.getStringSet("recent_cities", setOf())?.toMutableSet()
+        val cityData = "${city.city}, ${city.country}"
+        recentCitiesSet?.add(cityData)
+        saveRecentCities(recentCitiesSet ?: setOf())
+    }
+
+    private fun saveRecentCities(recentCities: Set<String>) {
+        val editor = sharedPreferences.edit()
+        editor.putStringSet("recent_cities", recentCities)
+        editor.apply()
     }
 
     private fun setupObserver() {
@@ -71,19 +101,20 @@ class SearchFragment : Fragment() {
     private fun setupSearch() {
         binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                /*query?.let {
+                query?.let {
                     viewModel.getCity(query, "it")
-                }*/
+                }
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (!newText.isNullOrEmpty() && newText.length > 3){
+                if (!newText.isNullOrEmpty() && (newText.length > 3)) {
                     viewModel.getCity(newText, "it")
                 }
                 return true
             }
         })
+
     }
 
     override fun onDestroyView() {

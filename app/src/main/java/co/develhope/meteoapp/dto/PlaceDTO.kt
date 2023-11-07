@@ -44,13 +44,4 @@ data class PlaceDTO(
     val postcodes: List<String?>?,
     @SerializedName("timezone")
     val timezone: String?
-) {
-    fun toDomain(): Place {
-        return Place(
-            city = name,
-            region = country,
-            lat = latitude,
-            long = longitude
-        )
-    }
-}
+)
