@@ -6,5 +6,8 @@ import co.develhope.meteoapp.domainmodel.Place
 sealed class SearchPlaceResult {
     data class Success(val data: List<Place>) : SearchPlaceResult()
     data class Error(val error: NetError) : SearchPlaceResult()
+
+    data class RecentSearch(val cityName: String)
+
 }
 

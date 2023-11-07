@@ -24,6 +24,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cityList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityTextView"
+        tools:listitem="@layout/card_search_item" />
+
     <TextView
         android:id="@+id/cityTextView"
         android:layout_width="wrap_content"
@@ -34,15 +42,6 @@
         android:textAppearance="@style/search_color_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cityList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityTextView"
-        tools:listitem="@layout/card_search_item" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

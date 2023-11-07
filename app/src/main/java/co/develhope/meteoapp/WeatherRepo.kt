@@ -2,13 +2,10 @@ package co.develhope.meteoapp
 
 import co.develhope.meteoapp.data.local.TodayDataLocal
 import co.develhope.meteoapp.data.remote.toTodayDataLocal
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonSyntaxException
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.threeten.bp.OffsetDateTime
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit

@@ -1,6 +1,9 @@
 package co.develhope.meteoapp.search
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,29 +30,41 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
+    private val sharedPreferences by lazy {
+        requireContext().getSharedPreferences("meteo_preferences", Context.MODE_PRIVATE)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupUi(emptyList())
+        setupUi(emptyList(), sharedPreferences)
         setupObserver()
         setupSearch()
+
+
+        val allData = sharedPreferences.all
+        for ((key, value) in allData) {
+            Log.d("SharedPreferences", "Key: $key, Value: $value")
+        }
+
     }
 
-    private fun setupUi(placeList: List<Place>) {
+    private fun setupUi(placeList: List<Place>, sharedPreferences: SharedPreferences) {
         val adapter = SearchAdapter(
-            placeList = placeList
-        ) {
-            findNavController().navigate(R.id.homeFragment)
-            Data.saveSelectedPlace(it)
-        }
+            placeList = placeList,
+            onPlaceClicked = {
+                findNavController().navigate(R.id.homeFragment)
+                Data.saveSelectedPlace(it)
+            },
+            sharedPreferences = sharedPreferences
+        )
         binding.cityList.layoutManager = LinearLayoutManager(requireContext())
         binding.cityList.adapter = adapter
-
     }
 
     private fun setupObserver() {
         viewModel.cityList.observe(viewLifecycleOwner) {
-            setupUi(it)
+            setupUi(it, sharedPreferences)
         }
     }
 

@@ -1,5 +1,6 @@
 package co.develhope.meteoapp.search
 
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,7 @@ import co.develhope.meteoapp.domainmodel.Place
 class SearchAdapter(
     private val placeList: List<Place>,
     private val onPlaceClicked: (Place) -> Unit,
+    private val sharedPreferences: SharedPreferences
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -31,16 +33,17 @@ class SearchAdapter(
 
             binding.searchItemCard.setOnClickListener {
                 onPlaceClicked(place)
+                sharedPreferences.edit().putString("selected_place", place.city).apply()
             }
         }
     }
 
-  /*  inner class RecentSearchViewHolder(private val binding: RecentSearchItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(recentSearch: SearchPlaceResult.RecentSearch) {
-            binding.searchItem.text = binding.root.context.getString(R.string.recentSearch)
-        }
-    }*/
+    /*  inner class RecentSearchViewHolder(private val binding: RecentSearchItemBinding) :
+          RecyclerView.ViewHolder(binding.root) {
+          fun bind(recentSearch: SearchPlaceResult.RecentSearch) {
+              binding.searchItem.text = binding.root.context.getString(R.string.recentSearch)
+          }
+      }*/
 
     override fun getItemViewType(position: Int): Int {
         //TODO to rewrite
@@ -63,13 +66,13 @@ class SearchAdapter(
                 )
             )
 
-          /*  VIEW_TYPE_RECENT_SEARCH -> RecentSearchViewHolder(
-                RecentSearchItemBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
-            )*/
+            /*  VIEW_TYPE_RECENT_SEARCH -> RecentSearchViewHolder(
+                  RecentSearchItemBinding.inflate(
+                      LayoutInflater.from(parent.context),
+                      parent,
+                      false
+                  )
+              )*/
 
             else -> throw IllegalArgumentException("Invalid ViewHolder Type")
         }
@@ -81,8 +84,8 @@ class SearchAdapter(
                 holder.bind(placeList[position])
             }
 
-          /*  is RecentSearchViewHolder -> {
-            }*/
+            /*  is RecentSearchViewHolder -> {
+              }*/
         }
     }
 
