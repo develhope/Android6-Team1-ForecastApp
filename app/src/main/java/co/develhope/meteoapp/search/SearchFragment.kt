@@ -9,24 +9,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.Data
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 import co.develhope.meteoapp.domainmodel.Place
+import org.koin.android.ext.android.inject
 
 
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
-    private val viewModel: SearchScreenViewModel by viewModels()
+    private val viewModel: SearchScreenViewModel by inject()
     private val binding get() = _binding!!
+
 
     private var placeList = mutableListOf<Place>()
 
     private var selectedPlace: String? = null
     private var cityData: String? = null
+
+    private val data: Data by inject()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -68,6 +72,7 @@ class SearchFragment : Fragment() {
         val uniquePlaceList =
             placeList.distinctBy { "${it.city}, ${it.country}".removeSuffix(",").trim() }
         val adapter = SearchAdapter(
+
             placeList = uniquePlaceList,
             onPlaceClicked = {
                 findNavController().navigate(R.id.homeFragment)
@@ -76,6 +81,13 @@ class SearchFragment : Fragment() {
             },
             sharedPreferences = sharedPreferences
         )
+
+            placeList = placeList
+        ) {
+            findNavController().navigate(R.id.homeFragment)
+            data.saveSelectedPlace(it)
+        }
+
         binding.cityList.layoutManager = LinearLayoutManager(requireContext())
         binding.cityList.adapter = adapter
 
