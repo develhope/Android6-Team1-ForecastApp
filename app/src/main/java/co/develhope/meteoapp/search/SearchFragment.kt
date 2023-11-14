@@ -23,7 +23,11 @@ class SearchFragment : Fragment() {
     private val viewModel: SearchScreenViewModel by viewModels()
     private val binding get() = _binding!!
 
-    private val placeList = mutableListOf<Place>()
+    private var placeList = mutableListOf<Place>()
+
+    private var selectedPlace: String? = null
+    private var cityData: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -39,18 +43,20 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //TEST
+
         val selectedPlace = sharedPreferences.getString("selected_place", "")
         Log.d("SelectedPlace", "Value: $selectedPlace")
 
-        if (!selectedPlace.isNullOrEmpty() && !placeList.any { it.city == selectedPlace }) {
-            placeList.add(Place(selectedPlace, "", 2.4, 4.3))
+        if (selectedPlace != null && selectedPlace != this.cityData) {
+            Log.d("SelectedPlace", "Formatted: $this.cityData")
+            sharedPreferences.edit().putString("selected_place", this.cityData).apply()
 
             val citiesFromNetwork = viewModel.cityList.value ?: emptyList()
             placeList.addAll(citiesFromNetwork)
-            placeList.distinct()
+            placeList = placeList.distinct().toMutableList()
             //END TEST
 
-
+            setupRecentCity()
             setupUi(placeList, sharedPreferences)
             setupObserver()
             setupSearch()
@@ -59,7 +65,8 @@ class SearchFragment : Fragment() {
 
 
     private fun setupUi(placeList: List<Place>, sharedPreferences: SharedPreferences) {
-        val uniquePlaceList = placeList.distinctBy { it.city }
+        val uniquePlaceList =
+            placeList.distinctBy { "${it.city}, ${it.country}".removeSuffix(",").trim() }
         val adapter = SearchAdapter(
             placeList = uniquePlaceList,
             onPlaceClicked = {
@@ -75,22 +82,59 @@ class SearchFragment : Fragment() {
         val maxSavedCities = 5
         if (placeList.size > maxSavedCities) {
             val trimmedPlaceList = placeList.take(maxSavedCities)
-            val placeNames = trimmedPlaceList.map { "${it.city}, ${it.country}" }
+            val placeNames =
+                trimmedPlaceList.map { "${it.city}, ${it.country}".removeSuffix(",").trim() }
             saveRecentCities(placeNames.toSet())
         }
     }
+
+
     private fun onCitySelected(city: Place) {
-        val recentCitiesSet = sharedPreferences.getStringSet("recent_cities", setOf())?.toMutableSet()
-        val cityData = "${city.city}, ${city.country}"
-        recentCitiesSet?.add(cityData)
-        saveRecentCities(recentCitiesSet ?: setOf())
+        val cityName = city.city.trim().removeSuffix(",")
+        val regionName = city.country.trim()
+        val cityData = "$cityName, $regionName".trim().removeSuffix(",")
+
+        // Log per debug
+        Log.d("CityFormat", "Original: ${city.city}, ${city.country}")
+        Log.d("CityFormat", "Trimmed: $cityName, $regionName")
+        Log.d("CityFormat", "Formatted: $cityData")
+
+        saveRecentCity(cityData)
+        // Aggiungi il salvataggio del luogo selezionato solo se è diverso da quello attuale
+        if (selectedPlace != cityData) {
+            Log.d("SelectedPlace", "Formatted: $cityData")
+            sharedPreferences.edit().putString("selected_place", cityData).apply()
+        }
     }
 
-    private fun saveRecentCities(recentCities: Set<String>) {
+
+    private fun saveRecentCity(recentCity: String) {
         val editor = sharedPreferences.edit()
-        editor.putStringSet("recent_cities", recentCities)
+        editor.putString("recent_city", recentCity)
         editor.apply()
     }
+
+
+    private fun setupRecentCity() {
+        val recentCity = sharedPreferences.getString("recent_city", "")
+        if (!recentCity.isNullOrEmpty()) {
+            viewModel.getCity(recentCity, "it")
+        }
+    }
+
+
+    private fun saveRecentCities(recentCities: Set<String>) {
+        val cleanedRecentCities = recentCities.map { it.trim().removeSuffix(",") }.toSet()
+
+        // Log per debug
+        Log.d("RecentCities", "Original: $recentCities")
+        Log.d("RecentCities", "Cleaned: $cleanedRecentCities")
+
+        val editor = sharedPreferences.edit()
+        editor.putStringSet("recent_cities", cleanedRecentCities)
+        editor.apply()
+    }
+
 
     private fun setupObserver() {
         viewModel.cityList.observe(viewLifecycleOwner) {
@@ -108,13 +152,12 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (!newText.isNullOrEmpty() && (newText.length > 3)) {
+                if (!newText.isNullOrEmpty() && newText.length > 3) {
                     viewModel.getCity(newText, "it")
                 }
                 return true
             }
         })
-
     }
 
     override fun onDestroyView() {

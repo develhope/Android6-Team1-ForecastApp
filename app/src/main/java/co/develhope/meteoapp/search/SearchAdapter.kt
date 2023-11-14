@@ -1,11 +1,13 @@
 package co.develhope.meteoapp.search
 
 import android.content.SharedPreferences
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CardSearchItemBinding
+import co.develhope.meteoapp.databinding.RecentSearchItemBinding
 import co.develhope.meteoapp.domainmodel.Place
 
 class SearchAdapter(
@@ -28,33 +30,39 @@ class SearchAdapter(
         fun bind(place: Place) {
             val cityName = place.city
             val regionName = place.country
-            val formattedText = "${cityName}, ${regionName}"
+            val formattedText = "${cityName}, $regionName"
             binding.searchItemCity.text = formattedText
 
             binding.searchItemCard.setOnClickListener {
                 onPlaceClicked(place)
-                sharedPreferences.edit()
-                    .putString("selected_place", formattedText).apply()
+                val cityName = place.city
+                val regionName = place.country
+                val selectedPlace = "${cityName}, $regionName".trim().removeSuffix(",")
+                Log.d("SelectedPlace", "Formatted: $selectedPlace")
+                sharedPreferences.edit().putString("selected_place", selectedPlace).apply()
             }
         }
     }
 
-    /*  inner class RecentSearchViewHolder(private val binding: RecentSearchItemBinding) :
-          RecyclerView.ViewHolder(binding.root) {
-          fun bind(recentSearch: SearchPlaceResult.RecentSearch) {
-              binding.searchItem.text = binding.root.context.getString(R.string.recentSearch)
-          }
-      }*/
+
+    inner class RecentSearchViewHolder(private val binding: RecentSearchItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(recentSearch: String) {
+            binding.root
+
+            binding.root.setOnClickListener {
+                // Implementa l'azione quando un elemento di ricerca recente viene cliccato
+                // ad esempio, puoi avviare una nuova ricerca con questo termine
+            }
+        }
+    }
 
     override fun getItemViewType(position: Int): Int {
-        //TODO to rewrite
-        return VIEW_TYPE_CITY
-
-        /*return when (recentSearchList[position]) {
-                is SearchPlaceResult.Success -> VIEW_TYPE_CITY
-                is SearchPlaceResult.RecentSearch -> VIEW_TYPE_RECENT_SEARCH
-                else -> throw IllegalArgumentException("Invalid ViewHolder Type")
-            }*/
+        return if (position < placeList.size) {
+            VIEW_TYPE_CITY
+        } else {
+            VIEW_TYPE_RECENT_SEARCH
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -67,13 +75,13 @@ class SearchAdapter(
                 )
             )
 
-            /*  VIEW_TYPE_RECENT_SEARCH -> RecentSearchViewHolder(
-                  RecentSearchItemBinding.inflate(
-                      LayoutInflater.from(parent.context),
-                      parent,
-                      false
-                  )
-              )*/
+            VIEW_TYPE_RECENT_SEARCH -> RecentSearchViewHolder(
+                RecentSearchItemBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
 
             else -> throw IllegalArgumentException("Invalid ViewHolder Type")
         }
@@ -85,8 +93,10 @@ class SearchAdapter(
                 holder.bind(placeList[position])
             }
 
-            /*  is RecentSearchViewHolder -> {
-              }*/
+            is RecentSearchViewHolder -> {
+                val recentSearch = placeList[position] as String
+                holder.bind(recentSearch)
+            }
         }
     }
 

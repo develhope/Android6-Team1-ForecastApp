@@ -4,6 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--Search Screen-->
+    <!-- Esempio di definizione della chiave "selected_place" nel file res/values/strings.xml -->
+    <string name="selected_place">selected_place</string>
     <string name="search_hint">Cerca Città</string>
     <string name="recentSearch">Ricerche Recenti</string>
     <string name="citySearch_item">Nome della città</string>
