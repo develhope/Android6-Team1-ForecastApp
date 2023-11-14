@@ -5,13 +5,9 @@ import co.develhope.meteoapp.data.local.TomorrowDataLocal
 import co.develhope.meteoapp.data.local.WeeklyDataLocal
 import co.develhope.meteoapp.data.remote.toHomeDataLocal
 import co.develhope.meteoapp.data.remote.toTodayDataLocal
-
-import com.google.gson.GsonBuilder
-
 import co.develhope.meteoapp.data.remote.toTomorrowDataLocal
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
-
 import okhttp3.OkHttpClient
 import okhttp3.Protocol
 import okhttp3.Response

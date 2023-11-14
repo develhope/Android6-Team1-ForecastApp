@@ -41,7 +41,6 @@ class SearchFragment : Fragment() {
 
     private val sharedPreferences by lazy {
         requireContext().getSharedPreferences("meteo_preferences", Context.MODE_PRIVATE)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,17 +75,11 @@ class SearchFragment : Fragment() {
             placeList = uniquePlaceList,
             onPlaceClicked = {
                 findNavController().navigate(R.id.homeFragment)
-                Data.saveSelectedPlace(it)
+                data.saveSelectedPlace(it)
                 onCitySelected(it)
             },
             sharedPreferences = sharedPreferences
         )
-
-            placeList = placeList
-        ) {
-            findNavController().navigate(R.id.homeFragment)
-            data.saveSelectedPlace(it)
-        }
 
         binding.cityList.layoutManager = LinearLayoutManager(requireContext())
         binding.cityList.adapter = adapter
