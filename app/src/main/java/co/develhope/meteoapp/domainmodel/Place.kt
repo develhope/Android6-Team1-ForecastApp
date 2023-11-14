@@ -2,7 +2,7 @@ package co.develhope.meteoapp.domainmodel
 
 data class Place(
     val city: String,
-    val region: String,
+    val country: String,
     val lat: Double,
     val long: Double
 )

@@ -19,15 +19,15 @@ class SearchScreenViewModel : ViewModel() {
 
 
     fun getCity(cityName: String, language: String) {
-
         viewModelScope.launch {
             try {
-                Log.d("GelPlace", "cityName: $cityName - language: $language")
-                val result : SearchPlaceResult = RetrofitInstance().getPlace(cityName, language = language)
-
-                when(result) {
+                Log.d("getCity", "cityName: $cityName - language: $language")
+                val result: SearchPlaceResult =
+                    RetrofitInstance().getPlace(cityName, language = language)
+                when (result) {
                     is Error -> Log.e("ERROR", "network error ")
                     is Success -> {
+                        Log.d("SearchScreenViewModel", "Received data: ${result.data}")
                         _cityList.value = result.data
                     }
                 }

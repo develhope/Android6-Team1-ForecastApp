@@ -14,7 +14,7 @@ data class ResultDTO(
     fun toDomain(): List<Place> {
         return results.map { Place(
             city = it.name,
-            region = it.country,
+            country = it.country,
             lat = it.latitude,
             long = it.longitude
         )}
