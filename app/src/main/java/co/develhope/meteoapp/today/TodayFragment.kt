@@ -37,7 +37,10 @@ class TodayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dailyViewModel.getDailyInfo(38.132, 13.3356)
+        dailyViewModel.getDailyInfo(
+            lat = data.getSelectedPlace()?.lat ?: 38.132,
+            lon = data.getSelectedPlace()?.long ?: 13.3356
+        )
 
         setupAdapter()
         setupObserver()
@@ -46,48 +49,25 @@ class TodayFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setupAdapter() {
-        val todayForecast = data.getTodayForecast()
-        val todayTitle = data.getTodayTitle()
-        val todayItems = todayList(todayForecast, todayTitle)
         binding.todayRecycler.adapter = TodayAdapter(listOf())
     }
 
     fun setupObserver() {
-
         dailyViewModel.result.observe(viewLifecycleOwner) {
             (binding.todayRecycler.adapter as TodayAdapter).setNewTodayList(it.toTodayForecastItem())
         }
-    }
-
-    private fun todayList(
-        todayCardForecastList: List<TodayForecast>,
-        todayTitle: String
-    ): List<TodayData> {
-
-        val todayItems = mutableListOf<TodayData>()
-
-        todayItems.add(
-            TodayData.TodayTitleData(
-                todayLocation = todayTitle,
-                todayTitleDate = OffsetDateTime.now()
-            )
-        )
-
-        todayCardForecastList.forEach { forecast ->
-            todayItems.add(
-                TodayData.TodayItemData(
-                    forecast = forecast
-                )
-            )
-        }
-        return todayItems.toList()
     }
 
     fun TodayDataLocal?.toTodayForecastItem(): List<TodayData> {
 
         val newList = mutableListOf<TodayData>()
 
-        newList.add(TodayData.TodayTitleData("Palermo, Sicilia ", OffsetDateTime.now()))
+        newList.add(
+            TodayData.TodayTitleData(
+                "${data.getSelectedPlace()?.city.orEmpty()}, ${data.getSelectedPlace()?.country.orEmpty()} ",
+                OffsetDateTime.now()
+            )
+        )
 
         this?.forEach { hourly ->
             newList.add(

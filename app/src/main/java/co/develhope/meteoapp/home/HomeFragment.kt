@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -60,10 +60,9 @@ class HomeFragment : Fragment() {
         }
     }
 
-
     fun WeeklyDataLocal?.toHomeForecast(): List<HomeForecast> {
         val newList = mutableListOf<HomeForecast>()
-        newList.add(HomeForecast.HomeTitle("Palermo, Sicilia"))
+        newList.add(HomeForecast.HomeTitle("${data.getSelectedPlace()?.city.orEmpty()}, ${data.getSelectedPlace()?.country.orEmpty()}"))
 
         this?.forEach { week ->
             if (week.date.dayOfMonth == OffsetDateTime.now().dayOfMonth) {
@@ -76,10 +75,7 @@ class HomeFragment : Fragment() {
                         precipitation = week.precipitation?.toInt() ?: 0,
                         windSpeed = week.windSpeed?.toInt() ?: 0
                     )
-
-
                 )
-
             }
         }
         newList.add(HomeForecast.HomeSubtitle)
@@ -103,27 +99,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeViewModel.getDailyInfo(38.132, 13.3356)
 
-
+        homeViewModel.getDailyInfo(
+            lat = data.getSelectedPlace()?.lat ?: 38.132,
+            lon = data.getSelectedPlace()?.long ?: 13.3356
+        )
 
         setupAdapter()
         setupObserver()
-
-//        binding.homeRecycleView.adapter = HomeAdapter(
-//            list = Data.getHomeList(),
-//            onClick = { item ->
-//                if (item is HomeForecast.HomeDays) {
-//                    val today = OffsetDateTime.now()
-//                    if (item.date.dayOfMonth == today.dayOfMonth) {
-//                        findNavController().navigate(R.id.todayFragment)
-//                    } else {
-//                        findNavController().navigate(R.id.tomorrowFragment)
-//                    }
-//                }
-//            }
-//        )
-
     }
 
     override fun onDestroyView() {

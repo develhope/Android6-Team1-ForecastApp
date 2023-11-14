@@ -37,61 +37,37 @@ class TomorrowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val selectedDate = data.getDate()!!.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))
-        tomorrowViewModel.getDailyInfo(38.132, 13.3356, selectedDate, selectedDate)
+
+        tomorrowViewModel.getDailyInfo(
+            lat = data.getSelectedPlace()?.lat ?: 38.132,
+            lon = data.getSelectedPlace()?.long ?: 13.3356,
+            start = selectedDate,
+            end = selectedDate
+        )
+
         setupAdapter()
         setupObserver()
     }
 
 
     private fun setupAdapter() {
-        val tomorrowTitle = data.getTomorrowTitle()
-        val tomorrowItem = data.getTomorrowForecast()
-        val tomorrowItems = tomorrowList(tomorrowItem, tomorrowTitle)
         binding.dayList.adapter = TomorrowAdapter(listOf())
-
     }
 
     fun setupObserver() {
         tomorrowViewModel.result.observe(viewLifecycleOwner) {
             (binding.dayList.adapter as TomorrowAdapter).setNewTomorrowList(
-                it.toTomorrowForecastItem(
-                    data
-                )
+                it.toTomorrowForecastItem(data)
             )
         }
-    }
-
-    private fun tomorrowList(
-        tomorrowCardForecastList: List<TomorrowForecast>,
-        tomorrowTitle: String
-    ): List<TomorrowData> {
-
-        val tomorrowItems = mutableListOf<TomorrowData>()
-
-        tomorrowItems.add(
-            TomorrowData.TomorrowTitle(
-                tomorrowLocation = tomorrowTitle,
-                tomorrowTitleDate = OffsetDateTime.now().plusDays(1)
-            )
-        )
-
-        tomorrowCardForecastList.forEach { forecast ->
-            tomorrowItems.add(
-                TomorrowData.TomorrowCard(
-                    tomorrowForecast = forecast
-                )
-            )
-        }
-        return tomorrowItems.toList()
     }
 
     fun TomorrowDataLocal?.toTomorrowForecastItem(data: Data): List<TomorrowData> {
-
         val newList = mutableListOf<TomorrowData>()
 
         newList.add(
             TomorrowData.TomorrowTitle(
-                "Palermo, Sicilia",
+                "${data.getSelectedPlace()?.city.orEmpty()}, ${data.getSelectedPlace()?.country.orEmpty()}",
                 data.getDate() ?: OffsetDateTime.now().plusDays(1)
             )
         )
