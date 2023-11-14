@@ -20,5 +20,10 @@ class Data {
     }
 
     //TO DO use this to read the selected place in home and specificDay screen
-    fun getSelectedPlace() = selectedPlace
+    fun getSelectedPlace() = selectedPlace ?: Place(
+        city = "Palermo",
+        country = "Sicilia",
+        lat = 38.132,
+        long = 13.3356
+    )
 }

@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
 
     fun WeeklyDataLocal?.toHomeForecast(): List<HomeForecast> {
         val newList = mutableListOf<HomeForecast>()
-        newList.add(HomeForecast.HomeTitle("${data.getSelectedPlace()?.city.orEmpty()}, ${data.getSelectedPlace()?.country.orEmpty()}"))
+        newList.add(HomeForecast.HomeTitle("${data.getSelectedPlace().city}, ${data.getSelectedPlace().country}"))
 
         this?.forEach { week ->
             if (week.date.dayOfMonth == OffsetDateTime.now().dayOfMonth) {
@@ -101,8 +101,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         homeViewModel.getDailyInfo(
-            lat = data.getSelectedPlace()?.lat ?: 38.132,
-            lon = data.getSelectedPlace()?.long ?: 13.3356
+            lat = data.getSelectedPlace().lat,
+            lon = data.getSelectedPlace().long
         )
 
         setupAdapter()

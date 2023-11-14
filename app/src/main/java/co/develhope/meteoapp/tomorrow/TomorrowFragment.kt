@@ -39,8 +39,8 @@ class TomorrowFragment : Fragment() {
         val selectedDate = data.getDate()!!.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))
 
         tomorrowViewModel.getDailyInfo(
-            lat = data.getSelectedPlace()?.lat ?: 38.132,
-            lon = data.getSelectedPlace()?.long ?: 13.3356,
+            lat = data.getSelectedPlace().lat,
+            lon = data.getSelectedPlace().long,
             start = selectedDate,
             end = selectedDate
         )
@@ -67,7 +67,7 @@ class TomorrowFragment : Fragment() {
 
         newList.add(
             TomorrowData.TomorrowTitle(
-                "${data.getSelectedPlace()?.city.orEmpty()}, ${data.getSelectedPlace()?.country.orEmpty()}",
+                "${data.getSelectedPlace().city}, ${data.getSelectedPlace().country}",
                 data.getDate() ?: OffsetDateTime.now().plusDays(1)
             )
         )

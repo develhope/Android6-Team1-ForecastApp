@@ -38,8 +38,8 @@ class TodayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         dailyViewModel.getDailyInfo(
-            lat = data.getSelectedPlace()?.lat ?: 38.132,
-            lon = data.getSelectedPlace()?.long ?: 13.3356
+            lat = data.getSelectedPlace().lat,
+            lon = data.getSelectedPlace().long
         )
 
         setupAdapter()
@@ -64,7 +64,7 @@ class TodayFragment : Fragment() {
 
         newList.add(
             TodayData.TodayTitleData(
-                "${data.getSelectedPlace()?.city.orEmpty()}, ${data.getSelectedPlace()?.country.orEmpty()} ",
+                "${data.getSelectedPlace().city}, ${data.getSelectedPlace().country} ",
                 OffsetDateTime.now()
             )
         )
