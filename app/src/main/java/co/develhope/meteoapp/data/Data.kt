@@ -1,10 +1,20 @@
 package co.develhope.meteoapp.data
 
+import android.content.SharedPreferences
 import co.develhope.meteoapp.domainmodel.Place
+import com.google.gson.Gson
+import org.koin.java.KoinJavaComponent.inject
 import org.threeten.bp.OffsetDateTime
+import javax.inject.Inject
 
-class Data {
+class Data(
+    val sharedPref: SharedPreferences,
+    val gson: Gson
+) {
+
+
     private var selectedDay: OffsetDateTime? = OffsetDateTime.now().plusDays(1)
+
 
     fun saveDate(savedDate: OffsetDateTime) {
         selectedDay = savedDate
